@@ -10,7 +10,10 @@ calc_field <- function(infile, file_data, op, weights = NULL) {
              result[i] <- max(dum_dat, na.rm = TRUE),
              result[i] <- min(dum_dat, na.rm = TRUE),
              result[i] <- mean(dum_dat, na.rm = TRUE),
-             result[i] <- stats::weighted.mean(dum_dat, weights, na.rm = TRUE)
+             result[i] <- stats::weighted.mean(dum_dat, weights, na.rm = TRUE),
+             result[i] <- max(dum_dat, na.rm = TRUE) - min(dum_dat, na.rm = TRUE),
+             result[i] <- stats::sd(dum_dat, na.rm = TRUE),
+             result[i] <- sum(dum_dat, na.rm = TRUE)
       )
     } else {
       result[i] <- NA

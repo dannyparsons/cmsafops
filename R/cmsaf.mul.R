@@ -6,8 +6,8 @@
 #'
 #'@aliases mul
 #'
-#'@param vari1  Name of variable in infile1 (character).
-#'@param vari2  Name of variable in infile2 (character).
+#'@param var1  Name of variable in infile1 (character).
+#'@param var2  Name of variable in infile2 (character).
 #'@param infile1 Filename of first input NetCDF file. This may include the
 #'  directory (character).
 #'@param infile2 Filename of second input NetCDF file. This may include the
@@ -66,14 +66,15 @@
 #'
 #'## Multiply the fields of both example CM SAF NetCDF files and write the
 #'## result into one output file.
-#'cmsaf.mul("SIS", "SIS", file.path(tempdir(),"CMSAF_example_file_1.nc"), 
-#'  file.path(tempdir(),"CMSAF_example_file_2.nc"),
-#'  file.path(tempdir(),"CMSAF_example_file_mul.nc"))
+#'cmsaf.mul(var1 = "SIS", var2 = "SIS", infile1 = file.path(tempdir(),
+#'  "CMSAF_example_file_1.nc"), infile2 = file.path(tempdir(),
+#'  "CMSAF_example_file_2.nc"), outfile = file.path(tempdir(),
+#'  "CMSAF_example_file_mul.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file_1.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_2.nc"),
 #'  file.path(tempdir(),"CMSAF_example_file_mul.nc")))
-cmsaf.mul <- function(vari1, vari2, infile1, infile2, outfile, nc34=4,
+cmsaf.mul <- function(var1, var2, infile1, infile2, outfile, nc34=4,
                       overwrite = FALSE, verbose = FALSE) {
-  arith_wrapper(3, vari1, vari2, infile1, infile2, outfile, nc34, overwrite, verbose)
+  arith_wrapper(3, var1, var2, infile1, infile2, outfile, nc34, overwrite, verbose)
 }

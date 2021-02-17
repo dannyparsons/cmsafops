@@ -12,8 +12,8 @@
 #' @export
 #'
 #' @examples
-#' get_time("hours since 1987-01-01", 249109)
-#' get_time("days since 1987-01-01", 9109)
+#' get_time(time.unit = "hours since 1987-01-01", time.step = 249109)
+#' get_time(time.unit = "days since 1987-01-01", time.step = 9109)
 get_time <- function(time.unit, time.step) {
   stopifnot(is.character(time.unit))
   stopifnot(is.numeric(time.step) && !any(is.na(time.step)))

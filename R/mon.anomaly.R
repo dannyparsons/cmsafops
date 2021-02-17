@@ -28,12 +28,12 @@
 #'
 #'## create some (non-realistic) example data
 #'
-#'lon <- seq(5, 15, 0.5)
-#'lat <- seq(45, 55, 0.5)
+#'lon <- seq(10, 15, 0.5)
+#'lat <- seq(50, 55, 0.5)
 #'time <- seq(as.Date("2000-01-01"), as.Date("2010-12-31"), "month")
 #'origin <- as.Date("1983-01-01 00:00:00")
 #'time <- as.numeric(difftime(time, origin, units = "hour"))
-#'data <- array(250:350, dim = c(21, 21, 132))
+#'data <- array(250:350, dim = c(11, 11, 132))
 #'
 #'## create example NetCDF
 #'
@@ -51,8 +51,8 @@
 #'
 #'## Determine the monthly anomalies of the example CM SAF NetCDF file and
 #'## write the output to a new file.
-#'mon.anomaly("SIS", file.path(tempdir(),"CMSAF_example_file.nc"),
-#'  file.path(tempdir(),"CMSAF_example_file_mon.anomaly.nc"))
+#'mon.anomaly(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"),
+#'  outfile = file.path(tempdir(),"CMSAF_example_file_mon.anomaly.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_mon.anomaly.nc")))

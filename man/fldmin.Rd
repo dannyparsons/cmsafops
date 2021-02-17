@@ -61,8 +61,8 @@ nc_close(ncnew)
 
 ## Determine the minimum values of the example CM SAF NetCDF file and
 ## write the output to a new file.
-fldmin("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
-file.path(tempdir(),"CMSAF_example_file_fldmin.nc"))
+fldmin(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+ outfile = file.path(tempdir(),"CMSAF_example_file_fldmin.nc"))
 
 unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
  file.path(tempdir(),"CMSAF_example_file_fldmin.nc")))
@@ -71,6 +71,9 @@ unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"),
 Other spatial operators: 
 \code{\link{fldmax}()},
 \code{\link{fldmean}()},
+\code{\link{fldrange}()},
+\code{\link{fldsd}()},
+\code{\link{fldsum}()},
 \code{\link{wfldmean}()}
 }
 \concept{spatial operators}

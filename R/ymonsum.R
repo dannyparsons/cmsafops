@@ -33,7 +33,7 @@
 #'time <- seq(as.Date("2000-01-01"), as.Date("2010-12-31"), "month")
 #'origin <- as.Date("1983-01-01 00:00:00")
 #'time <- as.numeric(difftime(time, origin, units = "hour"))
-#'data <- array(0:150, dim = c(21, 21, 132))
+#'data <- array(0:250, dim = c(21, 21, 132))
 #'
 #'## create example NetCDF
 #'
@@ -41,7 +41,7 @@
 #'y <- ncdim_def(name = "lat", units = "degrees_north", vals = lat)
 #'t <- ncdim_def(name = "time", units = "hours since 1983-01-01 00:00:00",
 #'  vals = time, unlim = TRUE)
-#'var1 <- ncvar_def("rain", "mm", list(x, y, t), -1, prec = "short")
+#'var1 <- ncvar_def("SDU", "h", list(x, y, t), -1, prec = "short")
 #'vars <- list(var1)
 #'ncnew <- nc_create(file.path(tempdir(),"CMSAF_example_file.nc"), vars)
 #'ncvar_put(ncnew, var1, data)
@@ -51,8 +51,8 @@
 #'
 #'## Determine the multi-year monthly sum of the example CM SAF NetCDF
 #'## file and write the output to a new file.
-#'ymonsum("rain", file.path(tempdir(),"CMSAF_example_file.nc"), 
-#'  file.path(tempdir(),"CMSAF_example_file_ymonsum.nc"))
+#'ymonsum(var = "SDU", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+#'  outfile = file.path(tempdir(),"CMSAF_example_file_ymonsum.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_ymonsum.nc")))

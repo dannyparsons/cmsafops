@@ -50,8 +50,8 @@
 #'
 #'## Determine the monthly maximum of the example CM SAF NetCDF file and
 #'## write the output to a new file.
-#'monmax("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
-#'  file.path(tempdir(),"CMSAF_example_file_monmax.nc"))
+#'monmax(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+#'  outfile = file.path(tempdir(),"CMSAF_example_file_monmax.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_monmax.nc")))

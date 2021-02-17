@@ -64,14 +64,15 @@ nc_close(ncnew)
 
 ## Divide each timestep of the example CM SAF NetCDF file by the number
 ## of days per month and write the output to a new file.
-divdpm("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
- file.path(tempdir(),"CMSAF_example_file_divdpm.nc"))
+divdpm(var = "SIS", infile= file.path(tempdir(),"CMSAF_example_file.nc"), 
+ outfile = file.path(tempdir(),"CMSAF_example_file_divdpm.nc"))
 
 unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
  file.path(tempdir(),"CMSAF_example_file_divdpm.nc")))
 }
 \seealso{
 Other mathematical operators: 
+\code{\link{cmsaf.abs}()},
 \code{\link{cmsaf.addc}()},
 \code{\link{cmsaf.add}()},
 \code{\link{cmsaf.divc}()},

@@ -1,16 +1,18 @@
 #' Accumulate data of NetCDF file.
 #'
-#' Computes the accumulation of the given variable over time. The resulting outfile has the same dimensions as the infile.
+#' Computes the accumulation of the given variable over time. 
+#' The resulting outfile has the same dimensions as the infile.
 #'
 #' @param var Name of variable in infile (character).
 #' @param infile Character containing file name or path of input file.
-#' @param outfile Character containing file name or path of output file. If
-#'   NULL, the input file is directly edited instead.
-#' @param nc34 NetCDF version of output file. If \code{nc34 = 3} the output file will be
-#'   in NetCDFv3 format (numeric). Default output is NetCDFv4.
-#' @param overwrite Logical; should existing output file be overwritten? If
-#'   outfile is NULL, this parameter is ignored.
-#' @param na_replace Replacing NA values with either 'mean' or 'previous' for monthly mean or previous value, respectively (character).
+#' @param outfile Character containing file name or path of output file. 
+#'   If NULL, the input file is directly edited instead.
+#' @param nc34 NetCDF version of output file. If \code{nc34 = 3} the output 
+#'   file will be in NetCDFv3 format (numeric). Default output is NetCDFv4.
+#' @param overwrite Logical; should existing output file be overwritten? 
+#'   If outfile is NULL, this parameter is ignored.
+#' @param na_replace Replacing NA values with either 'mean' or 'previous' 
+#'   for monthly mean or previous value, respectively (character).
 #' @param verbose logical; if TRUE, progress messages are shown
 #'
 #' @export

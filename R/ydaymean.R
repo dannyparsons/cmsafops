@@ -21,19 +21,19 @@
 #'
 #' @examples
 #'## Create an example NetCDF file with a similar structure as used by CM
-#'## SAF. The file is created with the ncdf4 package.  Alternatively
+#'## SAF. The file is created with the ncdf4 package. Alternatively
 #'## example data can be freely downloaded here: <https://wui.cmsaf.eu/>
 #'
 #'library(ncdf4)
 #'
 #'## create some (non-realistic) example data
 #'
-#'lon <- seq(5, 15, 0.5)
-#'lat <- seq(45, 55, 0.5)
+#'lon <- seq(10, 15, 0.5)
+#'lat <- seq(50, 55, 0.5)
 #'time <- seq(as.Date("2009-01-01"), as.Date("2010-12-31"), "day")
 #'origin <- as.Date("1983-01-01 00:00:00")
 #'time <- as.numeric(difftime(time, origin, units = "hour"))
-#'data <- array(250:350, dim = c(21, 21, 730))
+#'data <- array(250:350, dim = c(11, 11, 730))
 #'
 #'## create example NetCDF
 #'
@@ -51,8 +51,8 @@
 #'
 #'## Determine the multi-year daily mean of the example CM SAF NetCDF file
 #'## and write the output to a new file.
-#'ydaymean("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
-#'  file.path(tempdir(),"CMSAF_example_file_ydaymean.nc"))
+#'ydaymean(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+#'  outfile = file.path(tempdir(),"CMSAF_example_file_ydaymean.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_ydaymean.nc")))

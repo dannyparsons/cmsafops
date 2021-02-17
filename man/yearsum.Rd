@@ -61,8 +61,8 @@ nc_close(ncnew)
 
 ## Determine the annual sums of the example CM SAF NetCDF file and write
 ## the output to a new file.
-yearsum("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
- file.path(tempdir(),"CMSAF_example_file_yearsum.nc"))
+yearsum(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+ outfile = file.path(tempdir(),"CMSAF_example_file_yearsum.nc"))
 
 unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
  file.path(tempdir(),"CMSAF_example_file_yearsum.nc")))
@@ -70,6 +70,11 @@ unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"),
 \seealso{
 Other annual statistics: 
 \code{\link{year.anomaly}()},
-\code{\link{yearmean}()}
+\code{\link{yearmax}()},
+\code{\link{yearmean}()},
+\code{\link{yearmin}()},
+\code{\link{yearrange}()},
+\code{\link{yearsd}()},
+\code{\link{yearvar}()}
 }
 \concept{annual statistics}

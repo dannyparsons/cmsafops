@@ -9,13 +9,13 @@
 #'  (character).
 #'@param outfile Filename of output NetCDF file. This may include the directory
 #'  (character).
-#'@param nc34 NetCDF version of output file. If \code{nc34 = 3} the output file will be
-#'  in NetCDFv3 format (numeric). Default output is NetCDFv4.
+#'@param nc34 NetCDF version of output file. If \code{nc34 = 3} the output file 
+#'  will be in NetCDFv3 format (numeric). Default output is NetCDFv4.
 #'@param overwrite logical; should existing output file be overwritten?
 #'@param verbose logical; if TRUE, progress messages are shown
 #'
-#'@return A NetCDF file including a time series of area weighted spatial means is
-#'  written.
+#'@return A NetCDF file including a time series of area weighted spatial means
+#'  is written.
 #'@export
 #'
 #'@family spatial operators
@@ -52,8 +52,8 @@
 #'
 #'## Determine the spatial means of the example CM SAF NetCDF file and
 #'## write the output to a new file.
-#'wfldmean("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
-#'  file.path(tempdir(),"CMSAF_example_file_wfldmean.nc"))
+#'wfldmean(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+#'  outfile = file.path(tempdir(),"CMSAF_example_file_wfldmean.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_wfldmean.nc")))

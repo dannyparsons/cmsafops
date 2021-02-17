@@ -3,10 +3,10 @@
 # Wrapper function for basic arithmetic functions (cmsaf.add, cmsaf.div,
 # cmsaf.mul, cmsaf.sub). Argument op is one of 1-4, depending on the arithmetic
 # function used.
-arith_wrapper <- function(op, vari1, vari2, infile1, infile2, outfile, nc34,
+arith_wrapper <- function(op, var1, var2, infile1, infile2, outfile, nc34,
                           overwrite, verbose) {
-  check_variable(vari1)
-  check_variable(vari2)
+  check_variable(var1)
+  check_variable(var2)
 
   check_infile(infile1)
   check_infile(infile2)
@@ -20,8 +20,8 @@ arith_wrapper <- function(op, vari1, vari2, infile1, infile2, outfile, nc34,
   calc_time_start <- Sys.time()
 
   # get information about dimensions and attributes
-  file_data1 <- read_file(infile1, vari1)
-  file_data2 <- read_file(infile2, vari2)
+  file_data1 <- read_file(infile1, var1)
+  file_data2 <- read_file(infile2, var2)
 
   # define variable precision
   if (!op == 4 && exists(file_data1$variable$prec) && exists(file_data2$variable$prec)) {
@@ -79,10 +79,10 @@ arith_wrapper <- function(op, vari1, vari2, infile1, infile2, outfile, nc34,
   nc_format <- get_nc_version(nc34)
 
   cmsaf_info <- switch(op,
-                       paste0("cmsaf::cmsaf.add for variable ", vari1),
-                       paste0("cmsaf::cmsaf.sub for variable ", vari1),
-                       paste0("cmsaf::cmsaf.mul for variable ", vari1),
-                       paste0("cmsaf::cmsaf.div for variable ", vari1)
+                       paste0("cmsaf::cmsaf.add for variable ", var1),
+                       paste0("cmsaf::cmsaf.sub for variable ", var1),
+                       paste0("cmsaf::cmsaf.mul for variable ", var1),
+                       paste0("cmsaf::cmsaf.div for variable ", var1)
   )
 
   ##### prepare output #####

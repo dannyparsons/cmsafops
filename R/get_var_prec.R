@@ -4,6 +4,5 @@ get_var_prec <- function(varprec, var) {
   }  else{
     var_prec <- "float"
   }
-
   return(var_prec)
 }

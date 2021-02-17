@@ -54,7 +54,7 @@ nc_close(ncnew)
 
 ## Get information on a medium detail level of the example CM SAF NetCDF
 ## file:
-ncinfo(file.path(tempdir(),"CMSAF_example_file.nc"), "m")
+ncinfo(infile = file.path(tempdir(),"CMSAF_example_file.nc"), info = "m")
 
 unlink(file.path(tempdir(),"CMSAF_example_file.nc"))
 }

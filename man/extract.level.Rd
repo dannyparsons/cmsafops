@@ -83,8 +83,9 @@ extract.level("SIS", file.path(tempdir(),"CMSAF_example_file.nc"),
  file.path(tempdir(),"CMSAF_example_file_extract.level1.nc"))
 ## Extract all levels of the example CM SAF NetCDF file and write the
 ## output to a new file.
-extract.level("SIS", file.path(tempdir(),"CMSAF_example_file.nc"),
- file.path(tempdir(),"CMSAF_example_file_extract.level2.nc"), "all")
+extract.level(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"),
+ outfile = file.path(tempdir(),"CMSAF_example_file_extract.level2.nc"),
+ level = "all")
 
 unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"),
  file.path(tempdir(),"CMSAF_example_file_extract.level1.nc"),

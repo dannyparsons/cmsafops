@@ -1,4 +1,4 @@
-monx_wrapper <- function(op, var, infile, outfile, nc34, overwrite, verbose) {
+monx_wrapper <- function(op, var, infile, outfile, nc34, overwrite, verbose, p = NULL) {
   calc_time_start <- Sys.time()
 
   check_variable(var)
@@ -13,6 +13,16 @@ monx_wrapper <- function(op, var, infile, outfile, nc34, overwrite, verbose) {
 
   if (op > 2) {
     file_data$variable$prec <- "float"
+  }
+  
+  if (op == 7) {
+    if (length(p) > 1) {
+      p <- p[1]
+    }
+    if (p < 0 || p > 1) {
+      if (verbose) message("Your given p-value is outside [0,1]. The default will be used (0.95).")
+      p <- 0.95
+    }
   }
 
   date_time <- get_date_time(file_data$dimension_data$t, file_data$time_info$units)
@@ -58,6 +68,9 @@ monx_wrapper <- function(op, var, infile, outfile, nc34, overwrite, verbose) {
     paste0("cmsaf::monmean for variable ", file_data$variable$name),
     paste0("cmsaf::monsum for variable ", file_data$variable$name),
     paste0("cmsaf::monsd for variable ", file_data$variable$name),
+    paste0("cmsaf::monvar for variable ", file_data$variable$name),
+    paste0("cmsaf::monpctl with p = ", p, " for variable ", file_data$variable$name),
+    paste0("cmsaf::monavg for variable ", file_data$variable$name),
   )
 
   time_data <- time_bnds[1, ]
@@ -127,6 +140,18 @@ monx_wrapper <- function(op, var, infile, outfile, nc34, overwrite, verbose) {
            {
              if (verbose) message(paste0("apply monthly standard deviation ", count))
              data <- apply(dum_dat, c(1, 2), stats::sd, na.rm = TRUE)
+           },
+           {
+             if (verbose) message(paste0("apply monthly variance ", count))
+             data <- apply(dum_dat, c(1, 2), stats::var, na.rm = TRUE)
+           },
+           {
+             if (verbose) message(paste0("apply monthly percentile ", count))
+             data = apply(dum_dat, c(1, 2), stats::quantile, probs = p, names = FALSE, na.rm = TRUE)
+           },
+           {
+             if (verbose) message(paste0("apply monthly average ", count))
+             data <- rowMeans(dum_dat, dims = 2, na.rm = FALSE)
            }
     )
 

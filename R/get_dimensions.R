@@ -1,3 +1,10 @@
+#' Designed for the CM SAF R Toolbox.
+#'
+#' This function is a helper function called by the CM SAF R Toolbox.
+#' 
+#' @param id An object of the class NetCDF4
+#' @param dimnames Dimension names (data.frame)
+#' @export
 get_dimensions <- function(id, dimnames) {
   has_lon <- FALSE
   has_lat <- FALSE

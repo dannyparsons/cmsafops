@@ -36,7 +36,9 @@ seasx_wrapper <- function(op, var, infile, outfile, nc34, overwrite, verbose) {
   cmsaf_info <- switch(
     op,
     paste0("cmsaf::seasmean for variable ", file_data$variable$name),
-    paste0("cmsaf::seassum for variable ", file_data$variable$name)
+    paste0("cmsaf::seassum for variable ", file_data$variable$name),
+    paste0("cmsaf::seassd for variable ", file_data$variable$name),
+    paste0("cmsaf::seasvar for variable ", file_data$variable$name)
   )
 
   ##### prepare output #####
@@ -128,6 +130,14 @@ seasx_wrapper <- function(op, var, infile, outfile, nc34, overwrite, verbose) {
            {
              if (verbose) message(paste0("apply seasonal sum ", count, " of ", 4 * length(years_unique)))
              data <- rowSums(dum_dat, dims = 2, na.rm = TRUE) * ifelse(rowSums(is.na(dum_dat), dims = 2) == dim(dum_dat)[3], NA, 1)
+           },
+           {
+             if (verbose) message(paste0("apply seasonal standard deviation ", count, " of ", 4 * length(years_unique)))
+             data <- apply(dum_dat, c(1, 2), stats::sd, na.rm = TRUE)
+           },
+           {
+             if (verbose) message(paste0("apply seasonal variance ", count, " of ", 4 * length(years_unique)))
+             data <- apply(dum_dat, c(1, 2), stats::var, na.rm = TRUE)
            }
     )
 

@@ -62,14 +62,27 @@ nc_close(ncnew)
 
 ## Determine the diurnal range of the example CM SAF NetCDF file and
 ## write the output to a new file.
-dayrange("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
- file.path(tempdir(),"CMSAF_example_file_dayrange.nc"))
+dayrange(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+ outfile = file.path(tempdir(),"CMSAF_example_file_dayrange.nc"))
 
 unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
  file.path(tempdir(),"CMSAF_example_file_dayrange.nc")))
 }
 \seealso{
 Other daily statistics: 
-\code{\link{ydaymean}()}
+\code{\link{dayavg}()},
+\code{\link{daymax}()},
+\code{\link{daymean}()},
+\code{\link{daymin}()},
+\code{\link{daypctl}()},
+\code{\link{daysd}()},
+\code{\link{daysum}()},
+\code{\link{dayvar}()},
+\code{\link{ydaymax}()},
+\code{\link{ydaymean}()},
+\code{\link{ydaymin}()},
+\code{\link{ydayrange}()},
+\code{\link{ydaysd}()},
+\code{\link{ydaysum}()}
 }
 \concept{daily statistics}

@@ -83,9 +83,9 @@ nc_close(ncnew)
 
 ## Select a point of the example CM SAF NetCDF file and write the output
 ## to a csv-file.
-selpoint("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
- file.path(tempdir(),"CMSAF_example_file_selpoint.nc"),
- 8, 48, "csv")
+selpoint(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+ outfile = file.path(tempdir(),"CMSAF_example_file_selpoint.nc"),
+ lon1 = 8, lat1 = 48, format = "csv")
 
 unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
  file.path(tempdir(),"CMSAF_example_file_selpoint.nc.csv")))

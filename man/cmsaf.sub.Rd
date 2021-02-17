@@ -6,8 +6,8 @@
 \title{Subtract the fields of two input NetCDF files.}
 \usage{
 cmsaf.sub(
-  vari1,
-  vari2,
+  var1,
+  var2,
   infile1,
   infile2,
   outfile,
@@ -17,9 +17,9 @@ cmsaf.sub(
 )
 }
 \arguments{
-\item{vari1}{Name of variable in infile1 (character).}
+\item{var1}{Name of variable in infile1 (character).}
 
-\item{vari2}{Name of variable in infile2 (character).}
+\item{var2}{Name of variable in infile2 (character).}
 
 \item{infile1}{Filename of first input NetCDF file. This may include the
 directory (character).}
@@ -87,16 +87,17 @@ nc_close(ncnew)
 
 ## Subtract the fields of both example CM SAF NetCDF files and write the
 ## result into one output file.
-cmsaf.sub("SIS", "SIS", file.path(tempdir(),"CMSAF_example_file_1.nc"),
- file.path(tempdir(),"CMSAF_example_file_2.nc"),
- file.path(tempdir(),"CMSAF_example_file_sub.nc"))
+cmsaf.sub(var1 = "SIS", var2 = "SIS", infile1 = file.path(tempdir(),
+ "CMSAF_example_file_1.nc"), infile2 = file.path(tempdir(),
+ "CMSAF_example_file_2.nc"), outfile = file.path(tempdir(),
+ "CMSAF_example_file_sub.nc"))
 
-unlink(c(file.path(tempdir(),"CMSAF_example_file_1.nc"),
- file.path(tempdir(),"CMSAF_example_file_2.nc"),
- file.path(tempdir(),"CMSAF_example_file_sub.nc")))
+unlink(c(file.path(tempdir(),"CMSAF_example_file_1.nc"), file.path(tempdir(),
+ "CMSAF_example_file_2.nc"), file.path(tempdir(),"CMSAF_example_file_sub.nc")))
 }
 \seealso{
 Other mathematical operators: 
+\code{\link{cmsaf.abs}()},
 \code{\link{cmsaf.addc}()},
 \code{\link{cmsaf.add}()},
 \code{\link{cmsaf.divc}()},

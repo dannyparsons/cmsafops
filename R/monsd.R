@@ -14,7 +14,7 @@
 #'@param overwrite logical; should existing output file be overwritten?
 #'@param verbose logical; if TRUE, progress messages are shown
 #'
-#'@return A NetCDF file including a time series of monthly minima is written.
+#'@return A NetCDF file including a time series of monthly standard deviation is written.
 #'@export
 #'
 #'@family monthly statistics
@@ -51,8 +51,8 @@
 #'
 #'## Determine the monthly standard deviation of the example CM SAF NetCDF
 #'## file and write the output to a new file.
-#'monsd("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
-#'  file.path(tempdir(),"CMSAF_example_file_monsd.nc"))
+#'monsd(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+#'  outfile = file.path(tempdir(),"CMSAF_example_file_monsd.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_monsd.nc")))

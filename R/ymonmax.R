@@ -21,7 +21,7 @@
 #'
 #' @examples
 #'## Create an example NetCDF file with a similar structure as used by CM
-#'## SAF. The file is created with the ncdf4 package.  Alternatively
+#'## SAF. The file is created with the ncdf4 package. Alternatively
 #'## example data can be freely downloaded here: <https://wui.cmsaf.eu/>
 #'
 #'library(ncdf4)
@@ -51,8 +51,8 @@
 #'
 #'## Determine the multi-year monthly maximum of the example CM SAF NetCDF
 #'## file and write the output to a new file.
-#'ymonmax("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
-#'  file.path(tempdir(),"CMSAF_example_file_ymonmax.nc"))
+#'ymonmax(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+#'  outfile = file.path(tempdir(),"CMSAF_example_file_ymonmax.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_ymonmax.nc")))

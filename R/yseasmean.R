@@ -54,8 +54,8 @@
 #'
 #'## Determine the multi-year seasonal means of the example CM SAF NetCDF
 #'## file and write the output to a new file.
-#'yseasmean("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
-#'  file.path(tempdir(),"CMSAF_example_file_yseasmean.nc"))
+#'yseasmean(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+#'  outfile = file.path(tempdir(),"CMSAF_example_file_yseasmean.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_yseasmean.nc")))

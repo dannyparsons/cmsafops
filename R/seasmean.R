@@ -52,8 +52,8 @@
 #'
 #'## Determine the seasonal means of the example CM SAF NetCDF file and
 #'## write the output to a new file.
-#'seasmean("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
-#'  file.path(tempdir(),"CMSAF_example_file_seasmean.nc"))
+#'seasmean(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+#'  outfile = file.path(tempdir(),"CMSAF_example_file_seasmean.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_seasmean.nc")))

@@ -53,8 +53,9 @@
 #'
 #'## Divide each dataset element of the example CM SAF NetCDF file by a
 #'## given number and write the output to a new file.
-#'cmsaf.divc("SIS", 100, file.path(tempdir(),"CMSAF_example_file.nc"), 
-#'  file.path(tempdir(),"CMSAF_example_file_divc.nc"))
+#'cmsaf.divc(var = "SIS", const = 100, infile = file.path(tempdir(),
+#'  "CMSAF_example_file.nc"), outfile = file.path(tempdir(),
+#'  "CMSAF_example_file_divc.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_divc.nc")))

@@ -2,6 +2,12 @@
 #'
 #'The function determines monthly mean values from data of a single CM SAF
 #'NetCDF input file. This function is applicable to 3-dimensional NetCDF data.
+#'There is a difference between the operators monmean and monavg.
+#'The mean is regarded as a statistical function, whereas the average is found 
+#'simply by adding the sample members and dividing the result by the sample size. 
+#'For example, the mean of 1, 2, miss and 3 is (1 + 2 + 3)/3 = 2, 
+#'whereas the average is (1 + 2 + miss + 3)/4 = miss/4 = miss. 
+#'If there are no missing values in the sample, the average and mean are identical.
 #'
 #'@param var Name of NetCDF variable (character).
 #'@param infile Filename of input NetCDF file. This may include the directory
@@ -50,8 +56,8 @@
 #'
 #'## Determine the monthly mean of the example CM SAF NetCDF file and
 #'## write the output to a new file.
-#'monmean("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
-#'  file.path(tempdir(),"CMSAF_example_file_monmean.nc"))
+#'monmean(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+#'  outfile = file.path(tempdir(),"CMSAF_example_file_monmean.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_monmean.nc")))

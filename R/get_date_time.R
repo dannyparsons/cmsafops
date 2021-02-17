@@ -1,4 +1,4 @@
-#'Get dates and times from netcdf type date format.
+#'Get dates and times from NetCDF type date format.
 #'
 #'@param times Timesteps from netcdf data (numeric).
 #'@param unit Unit from netcdf data (character).
@@ -7,12 +7,13 @@
 #'  The parts of the date are of numeric type, but the times are stored as
 #'  characters (levels).
 #'@importFrom assertthat assert_that is.string
-#'@noRd
 #'
 #' @examples
-#'date_time <- get_date_time(c(159191, 5991820), "minutes since 1980-05-07")
+#'date_time <- get_date_time(times = c(159191, 5991820), 
+#'  unit = "minutes since 1980-05-07")
 #'date_time
 #'date_time$years
+#'@export
 get_date_time <- function(times, unit) {
   assert_that(is.numeric(times))
   assert_that(is.string(unit))

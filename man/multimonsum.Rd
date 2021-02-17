@@ -50,12 +50,12 @@ library(ncdf4)
 
 ## create some (non-realistic) example data
 
-lon <- seq(5, 15, 0.5)
-lat <- seq(45, 55, 0.5)
+lon <- seq(10, 15, 0.5)
+lat <- seq(50, 55, 0.5)
 time <- seq(as.Date("2000-01-01"), as.Date("2010-12-31"), "month")
 origin <- as.Date("1983-01-01 00:00:00")
 time <- as.numeric(difftime(time, origin, units = "hour"))
-data <- array(0:150, dim = c(21, 21, 132))
+data <- array(0:150, dim = c(11, 11, 132))
 
 ## create example NetCDF
 
@@ -73,7 +73,8 @@ nc_close(ncnew)
 
 ## Determine the sum of the monsoon seas from June to September of the
 ## example CM SAF NetCDF file and write the output to a new file.
-multimonsum("rain", c(6, 7, 8, 9), file.path(tempdir(),"CMSAF_example_file.nc"),
+multimonsum(var = "rain", month = c(6, 7, 8, 9), infile = 
+ file.path(tempdir(),"CMSAF_example_file.nc"), outfile =
  file.path(tempdir(),"CMSAF_example_file_multimonsum.nc"))
 
 unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
@@ -82,11 +83,15 @@ unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"),
 \seealso{
 Other monthly statistics: 
 \code{\link{mon.anomaly}()},
+\code{\link{monavg}()},
+\code{\link{mondaymean}()},
 \code{\link{monmax}()},
 \code{\link{monmean}()},
 \code{\link{monmin}()},
+\code{\link{monpctl}()},
 \code{\link{monsd}()},
 \code{\link{monsum}()},
+\code{\link{monvar}()},
 \code{\link{multimonmean}()},
 \code{\link{ymonmax}()},
 \code{\link{ymonmean}()},

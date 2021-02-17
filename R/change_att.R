@@ -54,7 +54,7 @@
 #'
 #'## Change the variable and standard name of the example CM SAF NetCDF
 #'## file:
-#'change_att("Data1", file.path(tempdir(),"CMSAF_example_file.nc"), v_name = "SIS",
+#'change_att(var = "Data1", infile = file.path(tempdir(),"CMSAF_example_file.nc"), v_name = "SIS",
 #'  s_name = "surface_downwelling_shortwave_flux_in_air")
 #'
 #'unlink(file.path(tempdir(),"CMSAF_example_file.nc"))

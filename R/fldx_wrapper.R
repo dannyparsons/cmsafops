@@ -13,7 +13,7 @@ fldx_wrapper <- function(op, var, infile, outfile, nc34, overwrite, verbose) {
   if (op > 2) {
     file_data$variable$prec <- "float"
   }
-  if (op < 4) {
+  if (op < 4 || op > 4) {
     file_data$dimension_data$x <- round((max(file_data$dimension_data$x, na.rm = TRUE) + min(file_data$dimension_data$x, na.rm = TRUE)) / 2, digits = 2)
     file_data$dimension_data$y <- round((max(file_data$dimension_data$y, na.rm = TRUE) + min(file_data$dimension_data$y, na.rm = TRUE)) / 2, digits = 2)
     result <- calc_field(infile, file_data, op)
@@ -51,6 +51,12 @@ fldx_wrapper <- function(op, var, infile, outfile, nc34, overwrite, verbose) {
     paste0("cmsaf::fldmean for variable ",
            file_data$variable$name),
     paste0("cmsaf::wfldmean for variable ",
+           file_data$variable$name),
+    paste0("cmsaf::fldrange for variable ",
+           file_data$variable$name),
+    paste0("cmsaf::fldsd for variable ",
+           file_data$variable$name),
+    paste0("cmsaf::fldsum for variable ",
            file_data$variable$name)
   )
 

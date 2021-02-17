@@ -61,19 +61,23 @@ nc_close(ncnew)
 
 ## Determine the all-time minimum of the example CM SAF NetCDF file and
 ## write the output to a new file.
-timmin("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
- file.path(tempdir(),"CMSAF_example_file_timmin.nc"))
+timmin(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+ outfile = file.path(tempdir(),"CMSAF_example_file_timmin.nc"))
 
 unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
  file.path(tempdir(),"CMSAF_example_file_timmin.nc")))
 }
 \seealso{
 Other temporal operators: 
+\code{\link{cmsaf.detrend}()},
+\code{\link{cmsaf.mk.test}()},
+\code{\link{cmsaf.regres}()},
 \code{\link{timmax}()},
 \code{\link{timmean}()},
 \code{\link{timpctl}()},
 \code{\link{timsd}()},
 \code{\link{timsum}()},
+\code{\link{trend_advanced}()},
 \code{\link{trend}()}
 }
 \concept{temporal operators}

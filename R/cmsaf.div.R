@@ -6,8 +6,8 @@
 #'
 #'@aliases div
 #'
-#'@param vari1  Name of variable in infile1 (character).
-#'@param vari2  Name of variable in infile2 (character).
+#'@param var1  Name of variable in infile1 (character).
+#'@param var2  Name of variable in infile2 (character).
 #'@param infile1 Filename of first input NetCDF file. This may include the
 #'  directory (character).
 #'@param infile2 Filename of second input NetCDF file. This may include the
@@ -34,13 +34,13 @@
 #'
 #'## create some (non-realistic) example data
 #'
-#'lon <- seq(5, 15, 0.5)
-#'lat <- seq(45, 55, 0.5)
+#'lon <- seq(10, 15, 0.5)
+#'lat <- seq(50, 55, 0.5)
 #'time <- c(as.Date("2000-01-01"), as.Date("2001-02-01"))
 #'origin <- as.Date("1983-01-01 00:00:00")
 #'time <- as.numeric(difftime(time, origin, units = "hour"))
-#'data1 <- array(250:350, dim = c(21, 21, 1))
-#'data2 <- array(230:320, dim = c(21, 21, 1))
+#'data1 <- array(250:350, dim = c(11, 11, 1))
+#'data2 <- array(230:320, dim = c(11, 11, 1))
 #'
 #'## create two example NetCDF files
 #'
@@ -66,14 +66,15 @@
 #'
 #'## Divide the fields of both example CM SAF NetCDF files and write the
 #'## result into one output file.
-#'cmsaf.div("SIS", "SIS", file.path(tempdir(),"CMSAF_example_file_1.nc"), 
-#'  file.path(tempdir(),"CMSAF_example_file_2.nc"),
-#'  file.path(tempdir(),"CMSAF_example_file_div.nc"))
+#'cmsaf.div(var1 = "SIS", var2 = "SIS", infile1 = file.path(tempdir(),
+#'  "CMSAF_example_file_1.nc"), infile2 = file.path(tempdir(),
+#'  "CMSAF_example_file_2.nc"), outfile = file.path(tempdir(),
+#'  "CMSAF_example_file_div.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file_1.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_2.nc"),
 #'  file.path(tempdir(),"CMSAF_example_file_div.nc")))
-cmsaf.div <- function(vari1, vari2, infile1, infile2, outfile, nc34=4,
+cmsaf.div <- function(var1, var2, infile1, infile2, outfile, nc34=4,
                       overwrite = FALSE, verbose = FALSE) {
-  arith_wrapper(4, vari1, vari2, infile1, infile2, outfile, nc34, overwrite, verbose)
+  arith_wrapper(4, var1, var2, infile1, infile2, outfile, nc34, overwrite, verbose)
 }

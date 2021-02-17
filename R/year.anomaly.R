@@ -50,8 +50,8 @@
 #'
 #'## Determine the annual anomalies of the example CM SAF NetCDF file and
 #'## write the output to a new file.
-#'year.anomaly("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
-#'  file.path(tempdir(),"CMSAF_example_file_year.anomaly.nc"))
+#'year.anomaly(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+#'  outfile = file.path(tempdir(),"CMSAF_example_file_year.anomaly.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_year.anomaly.nc")))

@@ -73,19 +73,24 @@ nc_close(ncnew)
 
 ## Determine the 90\% percentile of the example CM SAF NetCDF file and
 ## write the output to a new file.
-timpctl("SIS", 0.9, file.path(tempdir(),"CMSAF_example_file.nc"), 
- file.path(tempdir(),"CMSAF_example_file_timpctl.nc"))
+timpctl(var = "SIS", p = 0.9, infile = file.path(tempdir(),
+ "CMSAF_example_file.nc"), outfile = file.path(tempdir(),
+ "CMSAF_example_file_timpctl.nc"))
 
 unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
  file.path(tempdir(),"CMSAF_example_file_timpctl.nc")))
 }
 \seealso{
 Other temporal operators: 
+\code{\link{cmsaf.detrend}()},
+\code{\link{cmsaf.mk.test}()},
+\code{\link{cmsaf.regres}()},
 \code{\link{timmax}()},
 \code{\link{timmean}()},
 \code{\link{timmin}()},
 \code{\link{timsd}()},
 \code{\link{timsum}()},
+\code{\link{trend_advanced}()},
 \code{\link{trend}()}
 }
 \concept{temporal operators}

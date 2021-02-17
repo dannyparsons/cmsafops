@@ -28,7 +28,9 @@ additional variables (lon and lat).
 }
 \seealso{
 Other data manipulation functions: 
+\code{\link{acsaf_box_mergetime}()},
 \code{\link{box_mergetime}()},
+\code{\link{cmsaf.transform.coordinate.system}()},
 \code{\link{levbox_mergetime}()},
 \code{\link{remap}()}
 }

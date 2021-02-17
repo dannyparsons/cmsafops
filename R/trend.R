@@ -70,8 +70,8 @@
 #'
 #'## Determine the trend of the example CM SAF NetCDF file and write the
 #'## output to a new file.
-#'trend("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
-#'  file.path(tempdir(),"CMSAF_example_file_trend.nc"))
+#'trend(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+#'  outfile = file.path(tempdir(),"CMSAF_example_file_trend.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_trend.nc")))

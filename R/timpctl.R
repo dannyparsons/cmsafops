@@ -53,8 +53,9 @@
 #'
 #'## Determine the 90% percentile of the example CM SAF NetCDF file and
 #'## write the output to a new file.
-#'timpctl("SIS", 0.9, file.path(tempdir(),"CMSAF_example_file.nc"), 
-#'  file.path(tempdir(),"CMSAF_example_file_timpctl.nc"))
+#'timpctl(var = "SIS", p = 0.9, infile = file.path(tempdir(),
+#'  "CMSAF_example_file.nc"), outfile = file.path(tempdir(),
+#'  "CMSAF_example_file_timpctl.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_timpctl.nc")))

@@ -51,8 +51,8 @@
 #'
 #'## Determine the multi-year seasonal minimum of the example CM SAF
 #'## NetCDF file and write the output to a new file.
-#'yseasmin("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
-#'  file.path(tempdir(),"CMSAF_example_file_yseasmin.nc"))
+#'yseasmin(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+#'  outfile = file.path(tempdir(),"CMSAF_example_file_yseasmin.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_yseasmin.nc")))

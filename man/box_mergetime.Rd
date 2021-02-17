@@ -55,7 +55,7 @@ A NetCDF file including the merged time series of the selected region
 is written. The resulting file uses the meta data of the first input file.
 }
 \description{
-This function selects a region (and optionally a level) from a bunch of CM SAF
+This function selects a region (and optionally a level) from a bunch of
 NetCDF files that match the same pattern of the filename, and writes the
 output to a new file. If no longitude and latitude values are given, files are
 only merged. All input files have to have the same grid and the same variable.
@@ -102,8 +102,9 @@ nc_close(ncnew)
 ## Cut a region and merge both example CM SAF NetCDF files into one
 ## output file.  Get path information of working directory with getwd()
 ## command.
-box_mergetime("SIS", tempdir(), "CMSAF_example_file_n",
- file.path(tempdir(),"CMSAF_example_file_box_mergetime.nc"), 8, 12, 48, 52)
+box_mergetime(var = "SIS", path= tempdir(), pattern = "CMSAF_example_file_n",
+ outfile = file.path(tempdir(),"CMSAF_example_file_box_mergetime.nc"), 
+ lon1 = 8, lon2 = 12, lat1 = 48, lat2 = 52)
 
 unlink(c(file.path(tempdir(),"CMSAF_example_file_n1.nc"), 
  file.path(tempdir(),"CMSAF_example_file_n2.nc"),
@@ -111,7 +112,9 @@ unlink(c(file.path(tempdir(),"CMSAF_example_file_n1.nc"),
 }
 \seealso{
 Other data manipulation functions: 
+\code{\link{acsaf_box_mergetime}()},
 \code{\link{add_grid_info}()},
+\code{\link{cmsaf.transform.coordinate.system}()},
 \code{\link{levbox_mergetime}()},
 \code{\link{remap}()}
 }

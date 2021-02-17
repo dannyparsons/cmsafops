@@ -1,6 +1,17 @@
 # Changelog for cmsafops package
 
-## development
+## 1.1.0
+- Add new operators: cmsaf.abs, cmsaf.detrend, cmsaf.mk.test, cmsaf.regres, dayavg,
+  daymax, daymin, daypctl, daysd, dayvar, fldcor, fldcovar, fldrange, fldsd, 
+  gridboxmax, gridboxmean, gridboxmin, gridboxrange, gridboxsd, gridboxsum,
+  gridboxvar, hourmean, hoursum, mermean, monavg, mondaymean, monvar, runmax,
+  runmean, runmin, runrange, runsd, runsum, seasvar, timcor, timcovar, timselmean,
+  timselsum, trend_advanced, ydaymax, ydaymin, ydayrange, ydaysd, ydrunmean,
+  ydrunsum, yearrange, yearvar, ymonsd, yseassd, zonmean, zonsum
+- Increase efficiency of some operators
+
+
+## 1.0.0
 
 - Split up old cmsaf package into cmsaf (containing only the toolbox) and cmsafops (containing base operators)
 - Add new operator for accumulating data over time (timcumsum)

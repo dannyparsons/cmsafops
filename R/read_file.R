@@ -1,3 +1,11 @@
+#' Designed for the CM SAF R Toolbox.
+#'
+#' This function is a helper function called by the CM SAF R Toolbox.
+#' 
+#'@param infile Filename of input NetCDF file. This may include the directory 
+#' (character).
+#'@param var_name Name of NetCDF variable (character).
+#'@export
 read_file <- function(infile, var_name) {
   id <- nc_open(infile)
 

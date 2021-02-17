@@ -50,8 +50,8 @@
 #'
 #'## Determine the monthly sums of the example CM SAF NetCDF file and
 #'## write the output to a new file.
-#'monsum("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
-#'  file.path(tempdir(),"CMSAF_example_file_monsum.nc"))
+#'monsum(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+#'  outfile = file.path(tempdir(),"CMSAF_example_file_monsum.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_monsum.nc")))

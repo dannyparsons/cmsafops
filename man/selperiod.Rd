@@ -74,8 +74,9 @@ nc_close(ncnew)
 
 ## Select a 13-months period of the example CM SAF NetCDF file and write
 ## the output to a new file.
-selperiod("SIS", "2001-01-01", "2002-01-01", file.path(tempdir(),"CMSAF_example_file.nc"),
- file.path(tempdir(),"CMSAF_example_file_selperiod.nc"))
+selperiod(var = "SIS", start = "2001-01-01", end = "2002-01-01", 
+ infile = file.path(tempdir(),"CMSAF_example_file.nc"),
+ outfile = file.path(tempdir(),"CMSAF_example_file_selperiod.nc"))
 
 unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
  file.path(tempdir(),"CMSAF_example_file_selperiod.nc")))

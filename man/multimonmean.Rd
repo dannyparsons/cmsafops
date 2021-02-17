@@ -74,7 +74,8 @@ nc_close(ncnew)
 
 ## Determine the mean of the monsoon seas from June to September of the
 ## example CM SAF NetCDF file and write the output to a new file.
-multimonmean("SIS", c(6, 7, 8, 9), file.path(tempdir(),"CMSAF_example_file.nc"),
+multimonmean(var = "SIS", month = c(6, 7, 8, 9), infile = 
+ file.path(tempdir(),"CMSAF_example_file.nc"), outfile =
  file.path(tempdir(),"CMSAF_example_file_multimonmean.nc"))
 
 unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
@@ -83,11 +84,15 @@ unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"),
 \seealso{
 Other monthly statistics: 
 \code{\link{mon.anomaly}()},
+\code{\link{monavg}()},
+\code{\link{mondaymean}()},
 \code{\link{monmax}()},
 \code{\link{monmean}()},
 \code{\link{monmin}()},
+\code{\link{monpctl}()},
 \code{\link{monsd}()},
 \code{\link{monsum}()},
+\code{\link{monvar}()},
 \code{\link{multimonsum}()},
 \code{\link{ymonmax}()},
 \code{\link{ymonmean}()},

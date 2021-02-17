@@ -72,14 +72,16 @@ nc_close(ncnew)
 
 ## Add a given number each dataset element of the example CM SAF NetCDF
 ## file and write the output to a new file.
-cmsaf.addc("SIS", 10, file.path(tempdir(),"CMSAF_example_file.nc"), 
- file.path(tempdir(),"CMSAF_example_file_addc.nc"))
+cmsaf.addc(var = "SIS", const = 10, infile = file.path(tempdir(),
+ "CMSAF_example_file.nc"), outfile = file.path(tempdir(),
+ "CMSAF_example_file_addc.nc"))
 
 unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
  file.path(tempdir(),"CMSAF_example_file_addc.nc")))
 }
 \seealso{
 Other mathematical operators: 
+\code{\link{cmsaf.abs}()},
 \code{\link{cmsaf.add}()},
 \code{\link{cmsaf.divc}()},
 \code{\link{cmsaf.div}()},

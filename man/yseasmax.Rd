@@ -62,8 +62,8 @@ nc_close(ncnew)
 
 ## Determine the multi-year seasonal maximum of the example CM SAF
 ## NetCDF file and write the output to a new file.
-yseasmax("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
- file.path(tempdir(),"CMSAF_example_file_yseasmax.nc"))
+yseasmax(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+ outfile = file.path(tempdir(),"CMSAF_example_file_yseasmax.nc"))
 
 unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
  file.path(tempdir(),"CMSAF_example_file_yseasmax.nc")))
@@ -72,7 +72,9 @@ unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"),
 Other seasonal statistics: 
 \code{\link{seas.anomaly}()},
 \code{\link{seasmean}()},
+\code{\link{seassd}()},
 \code{\link{seassum}()},
+\code{\link{seasvar}()},
 \code{\link{yseasmean}()},
 \code{\link{yseasmin}()},
 \code{\link{yseassd}()}

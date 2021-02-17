@@ -64,14 +64,15 @@ nc_close(ncnew)
 
 ## Multiply each timestep of the example CM SAF NetCDF file with the
 ## number of days per month and write the output to a new file.
-muldpm("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
- file.path(tempdir(),"CMSAF_example_file_muldpm.nc"))
+muldpm(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+ outfile = file.path(tempdir(),"CMSAF_example_file_muldpm.nc"))
 
 unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
  file.path(tempdir(),"CMSAF_example_file_muldpm.nc")))
 }
 \seealso{
 Other mathematical operators: 
+\code{\link{cmsaf.abs}()},
 \code{\link{cmsaf.addc}()},
 \code{\link{cmsaf.add}()},
 \code{\link{cmsaf.divc}()},

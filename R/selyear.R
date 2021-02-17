@@ -52,8 +52,9 @@
 #'
 #'## Select all values of the year 2003 and 2006 of the example CM SAF
 #'## NetCDF file and write the output to a new file.
-#'   selyear('SIS',c(2003,2006),file.path(tempdir(),'CMSAF_example_file.nc'),
-#'   file.path(tempdir(),'CMSAF_example_file_selyear.nc'))
+#'   selyear(var = "SIS", year = c(2003,2006), infile = file.path(tempdir(),
+#'   'CMSAF_example_file.nc'), outfile = file.path(tempdir(),
+#'   'CMSAF_example_file_selyear.nc'))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_selyear.nc")))

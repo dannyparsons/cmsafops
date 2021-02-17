@@ -71,8 +71,9 @@ nc_close(ncnew)
 
 ## Select all March and June values of the example CM SAF NetCDF file
 ## and write the output to a new file.
-selmon("SIS", c(3, 6), file.path(tempdir(),"CMSAF_example_file.nc"),
- file.path(tempdir(),"CMSAF_example_file_selmon.nc"))
+selmon(var = "SIS", month = c(3, 6), infile = file.path(tempdir(),
+ "CMSAF_example_file.nc"), outfile = file.path(tempdir(),
+ "CMSAF_example_file_selmon.nc"))
 
 unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
  file.path(tempdir(),"CMSAF_example_file_selmon.nc")))

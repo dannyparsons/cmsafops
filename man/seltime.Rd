@@ -71,8 +71,9 @@ nc_close(ncnew)
 
 ## Select all 12:00 and 21:00 values of the example CM SAF NetCDF file
 ## and write the output to a new file.
-seltime("SIS", c("12:00:00", "21:00:00"), file.path(tempdir(),"CMSAF_example_file.nc"), 
- file.path(tempdir(),"CMSAF_example_file_seltime.nc"))
+seltime(var = "SIS", hour_min = c("12:00:00", "21:00:00"), 
+ infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+ outfile = file.path(tempdir(),"CMSAF_example_file_seltime.nc"))
 
 unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
  file.path(tempdir(),"CMSAF_example_file_seltime.nc")))

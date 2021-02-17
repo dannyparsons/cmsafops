@@ -62,9 +62,9 @@
 #'## output file.  Get path information of working directory with getwd()
 #'## command.
 #'wd <- getwd()
-#'cmsaf.cat("SIS", c(file.path(tempdir(),"CMSAF_example_file_1.nc"), 
-#'  file.path(tempdir(),"CMSAF_example_file_2.nc")),
-#'  file.path(tempdir(),"CMSAF_example_file_cat.nc"))
+#'cmsaf.cat(var = "SIS", infiles = c(file.path(tempdir(),
+#'  "CMSAF_example_file_1.nc"), file.path(tempdir(),"CMSAF_example_file_2.nc")),
+#'  outfile = file.path(tempdir(),"CMSAF_example_file_cat.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file_1.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_2.nc"),

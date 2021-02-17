@@ -21,6 +21,6 @@ unit. This function uses both information to convert them to POSIXct time
 values. For the unit 'months since' an approximation of 30.4375 d is used!
 }
 \examples{
-get_time("hours since 1987-01-01", 249109)
-get_time("days since 1987-01-01", 9109)
+get_time(time.unit = "hours since 1987-01-01", time.step = 249109)
+get_time(time.unit = "days since 1987-01-01", time.step = 9109)
 }

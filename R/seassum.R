@@ -52,8 +52,8 @@
 #'
 #'## Determine the seasonal sums of the example CM SAF NetCDF file and
 #'## write the output to a new file.
-#'seassum("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
-#'  file.path(tempdir(),"CMSAF_example_file_seassum.nc"))
+#'seassum(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+#'  outfile = file.path(tempdir(),"CMSAF_example_file_seassum.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_seassum.nc")))

@@ -15,16 +15,16 @@ wfldmean(var, infile, outfile, nc34 = 4, overwrite = FALSE, verbose = FALSE)
 \item{outfile}{Filename of output NetCDF file. This may include the directory
 (character).}
 
-\item{nc34}{NetCDF version of output file. If \code{nc34 = 3} the output file will be
-in NetCDFv3 format (numeric). Default output is NetCDFv4.}
+\item{nc34}{NetCDF version of output file. If \code{nc34 = 3} the output file
+will be in NetCDFv3 format (numeric). Default output is NetCDFv4.}
 
 \item{overwrite}{logical; should existing output file be overwritten?}
 
 \item{verbose}{logical; if TRUE, progress messages are shown}
 }
 \value{
-A NetCDF file including a time series of area weighted spatial means is
-written.
+A NetCDF file including a time series of area weighted spatial means
+is written.
 }
 \description{
 The function determines area weighted mean values from data of a single file.
@@ -63,8 +63,8 @@ nc_close(ncnew)
 
 ## Determine the spatial means of the example CM SAF NetCDF file and
 ## write the output to a new file.
-wfldmean("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
- file.path(tempdir(),"CMSAF_example_file_wfldmean.nc"))
+wfldmean(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+ outfile = file.path(tempdir(),"CMSAF_example_file_wfldmean.nc"))
 
 unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
  file.path(tempdir(),"CMSAF_example_file_wfldmean.nc")))
@@ -73,6 +73,9 @@ unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"),
 Other spatial operators: 
 \code{\link{fldmax}()},
 \code{\link{fldmean}()},
-\code{\link{fldmin}()}
+\code{\link{fldmin}()},
+\code{\link{fldrange}()},
+\code{\link{fldsd}()},
+\code{\link{fldsum}()}
 }
 \concept{spatial operators}

@@ -1,5 +1,5 @@
 calc_timx_result <- function(op, infile, dimension_data, var_name, na.rm, p) {
-  limit <- 2601 * 2601 * 31  # This value can be ajusted to avoid RAM overflow
+  limit <- 2601 * 2601 * 31  # This value can be adjusted to avoid RAM overflow
 
   dimensionality <- as.double(length(dimension_data$x)) *
     as.double(length(dimension_data$y)) * as.double(length(dimension_data$t))

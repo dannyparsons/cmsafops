@@ -77,8 +77,10 @@
 #'## Cut a region and levl, and merge both example CM SAF NetCDF files
 #'## into one output file. First get path information of working
 #'## directory.
-#'levbox_mergetime("SIS", 1, tempdir(), "CMSAF_example_file_n",
-#'  file.path(tempdir(),"CMSAF_example_file_levbox_mergetime.nc"), 8, 12, 48, 52)
+#'levbox_mergetime(var = "SIS", level = 1, path = tempdir(), 
+#'  pattern = "CMSAF_example_file_n", outfile = file.path(tempdir(),
+#'  "CMSAF_example_file_levbox_mergetime.nc"), lon1 = 8, lon2 = 12, 
+#'  lat1 = 48, lat2 =52)
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file_n1.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_n2.nc"),

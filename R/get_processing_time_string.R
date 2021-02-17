@@ -1,11 +1,12 @@
-# Get processing time string
-#
-# @param time_start start time of the process (of class "POSIXct" as given by
-#   "Sys.time()")
-# @param time_end end time of the process (of class "POSIXct" as given by
-#   "Sys.time()")
-#
-# @return a specialized string containing the processed time
+#' Get processing time string
+#'
+#' @param time_start start time of the process (of class "POSIXct" as given by
+#'   "Sys.time()")
+#' @param time_end end time of the process (of class "POSIXct" as given by
+#'   "Sys.time()")
+#'
+#' @return a specialized string containing the processed time
+#' @export
 get_processing_time_string <- function(time_start, time_end) {
   stopifnot(length(time_start) == 1)
   stopifnot(length(time_start) == 1)

@@ -54,8 +54,9 @@
 #'
 #'## Multiply each dataset element of the example CM SAF NetCDF file by a
 #'## given number and write the output to a new file.
-#'cmsaf.mulc("SIS", 10, file.path(tempdir(),"CMSAF_example_file.nc"),
-#'  file.path(tempdir(),"CMSAF_example_file_mulc.nc"))
+#'cmsaf.mulc(var = "SIS", const = 10, infile = file.path(tempdir(),
+#'  "CMSAF_example_file.nc"), outfile = file.path(tempdir(),
+#'  "CMSAF_example_file_mulc.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_mulc.nc")))

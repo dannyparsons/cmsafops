@@ -61,8 +61,8 @@ nc_close(ncnew)
 
 ## Determine the maximum values of the example CM SAF NetCDF file and
 ## write the output to a new file.
-fldmax("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
- file.path(tempdir(),"CMSAF_example_file_fldmax.nc"))
+fldmax(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+ outfile = file.path(tempdir(),"CMSAF_example_file_fldmax.nc"))
 
 unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
  file.path(tempdir(),"CMSAF_example_file_fldmax.nc")))
@@ -71,6 +71,9 @@ unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"),
 Other spatial operators: 
 \code{\link{fldmean}()},
 \code{\link{fldmin}()},
+\code{\link{fldrange}()},
+\code{\link{fldsd}()},
+\code{\link{fldsum}()},
 \code{\link{wfldmean}()}
 }
 \concept{spatial operators}

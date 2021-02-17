@@ -1,6 +1,6 @@
 #'Function to combine NetCDF files and simultaneously cut a region (and level).
 #'
-#'This function selects a region (and optionally a level) from a bunch of CM SAF
+#'This function selects a region (and optionally a level) from a bunch of
 #'NetCDF files that match the same pattern of the filename, and writes the
 #'output to a new file. If no longitude and latitude values are given, files are
 #'only merged. All input files have to have the same grid and the same variable.
@@ -72,8 +72,9 @@
 #'## Cut a region and merge both example CM SAF NetCDF files into one
 #'## output file.  Get path information of working directory with getwd()
 #'## command.
-#'box_mergetime("SIS", tempdir(), "CMSAF_example_file_n",
-#'  file.path(tempdir(),"CMSAF_example_file_box_mergetime.nc"), 8, 12, 48, 52)
+#'box_mergetime(var = "SIS", path= tempdir(), pattern = "CMSAF_example_file_n",
+#'  outfile = file.path(tempdir(),"CMSAF_example_file_box_mergetime.nc"), 
+#'  lon1 = 8, lon2 = 12, lat1 = 48, lat2 = 52)
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file_n1.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_n2.nc"),
@@ -81,10 +82,10 @@
 box_mergetime <- function(var, path, pattern, outfile, lon1 = -180, lon2 = 180,
                           lat1 = -90, lat2 = 90, level = NULL, nc34 = 4,
                           overwrite = FALSE, verbose = FALSE) {
+  
   if (is.null(path) || is.null(pattern) || missing(path) || missing(pattern)) {
     stop("Missing input: Please provide path and pattern.")
   }
-
   check_variable(var)
 
   check_outfile(outfile)
@@ -115,10 +116,10 @@ box_mergetime <- function(var, path, pattern, outfile, lon1 = -180, lon2 = 180,
     stop("No lon/lat information found in file, ",
          "please add by applying add_grid_info")
   }
-  if (is.null(file_data$variable$prec) || !(file_data$variable$prec %in% PRECISIONS_VAR)) {
-    file_data$variable$prec <- "float"
-  }
-
+  # if (is.null(file_data$variable$prec) || !(file_data$variable$prec %in% PRECISIONS_VAR)) {
+  #   file_data$variable$prec <- "float"
+  # }
+  file_data$variable$prec <- "float" # fixed problem with wrong datatype
   if (!length(file_data$grid$vars)) {
     lon <- file_data$dimension_data$x
     lat <- file_data$dimension_data$y
@@ -243,7 +244,10 @@ box_mergetime <- function(var, path, pattern, outfile, lon1 = -180, lon2 = 180,
   time_len <- 0 #length(file_data$dimension_data$t)
   time_sorting <- file_data$dimension_data$t
   file_num <- rep(1, time_len)
-
+  
+  counter_time <- 0 # used for secs
+  counter_days <- 0
+  
     nc_out <- nc_open(outfile, write = TRUE)
     for (i in seq_len(fdim)) {
       file <- filelist[i]
@@ -316,6 +320,7 @@ box_mergetime <- function(var, path, pattern, outfile, lon1 = -180, lon2 = 180,
       }
 
       dum_t_units <- ncatt_get(nc_in, TIME_NAMES$DEFAULT, ATTR_NAMES$UNITS)$value
+
       dt_dum <- get_time(dum_t_units, dum_time)
 
       if (as.character(dt_ref) == "-4712-01-01 12:00:00") {
@@ -324,7 +329,28 @@ box_mergetime <- function(var, path, pattern, outfile, lon1 = -180, lon2 = 180,
         if (unit_ref == "months") {
           dum_time2 <- as.numeric(round((difftime(dt_dum, dt_ref,
                                                   units = c("days"))) / 30.4375))
-        } else {
+        } else if(unit_ref == "secs"){
+          if(fdim > 1){
+            file_data_1 <- read_file(file, var)
+            file_time_info_units <- file_data_1$time_info$units
+            extract_string <- substr(file_time_info_units, 1, 24)
+            
+            dt_dum <- get_time(extract_string, counter_time)
+            counter_time <- counter_time + 3600
+            dum_time2 <- difftime(dt_dum, dt_ref, units = c(unit_ref))
+            
+            counter_days <- counter_days + 1
+            if(counter_days == 24)
+            {
+              counter_days <- 0
+              counter_time <- 0
+            }
+          }
+          else{
+            dum_time2 <- difftime(dt_dum, dt_ref, units = c(unit_ref))
+          }
+        }
+        else {
           dum_time2 <- difftime(dt_dum, dt_ref, units = c(unit_ref))
         }
       }

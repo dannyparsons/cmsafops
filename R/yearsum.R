@@ -50,8 +50,8 @@
 #'
 #'## Determine the annual sums of the example CM SAF NetCDF file and write
 #'## the output to a new file.
-#'yearsum("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
-#'  file.path(tempdir(),"CMSAF_example_file_yearsum.nc"))
+#'yearsum(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+#'  outfile = file.path(tempdir(),"CMSAF_example_file_yearsum.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_yearsum.nc")))

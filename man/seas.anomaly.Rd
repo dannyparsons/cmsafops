@@ -68,8 +68,8 @@ nc_close(ncnew)
 
 ## Determine the seasonal anomalies of the example CM SAF NetCDF file
 ## and write the output to a new file.
-seas.anomaly("SIS", file.path(tempdir(),"CMSAF_example_file.nc"),
- file.path(tempdir(),"CMSAF_example_file_seas.anomaly.nc"))
+seas.anomaly(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"),
+ outfile = file.path(tempdir(),"CMSAF_example_file_seas.anomaly.nc"))
 
 unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
  file.path(tempdir(),"CMSAF_example_file_seas.anomaly.nc")))
@@ -77,7 +77,9 @@ unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"),
 \seealso{
 Other seasonal statistics: 
 \code{\link{seasmean}()},
+\code{\link{seassd}()},
 \code{\link{seassum}()},
+\code{\link{seasvar}()},
 \code{\link{yseasmax}()},
 \code{\link{yseasmean}()},
 \code{\link{yseasmin}()},

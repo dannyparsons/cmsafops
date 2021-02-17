@@ -204,7 +204,58 @@ create_examples_v4 <- function() {
   nc_close(ncnew)
 }
 
-# Create test data for dayrange.
+# Create test data for runmax, runmin, runmean, runrange, runsum
+create_run_data <- function() {
+  filename <- file.path(testdata_dir, "ex_run.nc")
+  filename <- "ex_run.nc"
+  lon <- seq(5, 7, 0.5)
+  lat <- seq(45, 47, 0.5)
+  time <- seq(as.Date("2000-01-01"), as.Date("2000-03-31"), "month")
+  origin <- as.Date("1983-01-01 00:00:00")
+  time <- as.numeric(difftime(time, origin, units = "hour"))
+  data <- array(10:100, dim = c(5, 5, 3))
+  
+  x <- ncdim_def(name = "lon", units = "degrees_east", vals = lon)
+  y <- ncdim_def(name = "lat", units = "degrees_north", vals = lat)
+  t <- ncdim_def(name = "time", units = "hours since 1983-01-01 00:00:00",
+                 vals = time, unlim = TRUE)
+  var1 <- ncvar_def("SIS", "W m-2", list(x, y, t), -999, prec = "short",
+                    longname = "Surface Incoming Shortwave Radiation")
+  vars <- list(var1)
+  ncnew <- nc_create(filename, vars)
+  ncvar_put(ncnew, var1, data)
+  ncatt_put(ncnew, "lon", "standard_name", "longitude", prec = "text")
+  ncatt_put(ncnew, "lat", "standard_name", "latitude", prec = "text")
+  ncatt_put(ncnew, "SIS", "standard_name", "SIS_standard", prec = "text")
+  nc_close(ncnew)
+}
+
+# Create test data for cmsaf.abs
+create_cmsaf.abs <- function() {
+  filename <- file.path(testdata_dir, "ex_cmsaf.abs.nc")
+  lon <- seq(5, 7, 1)
+  lat <- seq(45, 49, 1)
+  time <- seq(as.Date("2000-01-01"), as.Date("2000-03-31"), "month")
+  origin <- as.Date("1983-01-01 00:00:00")
+  time <- as.numeric(difftime(time, origin, units = "hour"))
+  data <- array(-10:50, dim = c(3, 5, 3))
+  
+  x <- ncdim_def(name = "lon", units = "degrees_east", vals = lon)
+  y <- ncdim_def(name = "lat", units = "degrees_north", vals = lat)
+  t <- ncdim_def(name = "time", units = "hours since 1983-01-01 00:00:00",
+                 vals = time, unlim = TRUE)
+  var1 <- ncvar_def("SIS", "W m-2", list(x, y, t), -999, prec = "short",
+                    longname = "Surface Incoming Shortwave Radiation")
+  vars <- list(var1)
+  ncnew <- nc_create(filename, vars)
+  ncvar_put(ncnew, var1, data)
+  ncatt_put(ncnew, "lon", "standard_name", "longitude", prec = "text")
+  ncatt_put(ncnew, "lat", "standard_name", "latitude", prec = "text")
+  ncatt_put(ncnew, "SIS", "standard_name", "SIS_standard", prec = "text")
+  nc_close(ncnew)
+}
+
+# Create test data for dayrange
 create_dayrange <- function() {
   filename <- file.path(testdata_dir, "ex_dayrange.nc")
   lon <- seq(5, 8, 0.5)
@@ -223,6 +274,111 @@ create_dayrange <- function() {
   vars <- list(var1)
   ncnew <- nc_create(filename, vars)
   ncvar_put(ncnew, var1, data)
+  ncatt_put(ncnew, "lon", "standard_name", "longitude", prec = "text")
+  ncatt_put(ncnew, "lat", "standard_name", "latitude", prec = "text")
+  ncatt_put(ncnew, "SIS", "standard_name", "SIS_standard", prec = "text")
+  nc_close(ncnew)
+}
+
+# Create test data for dayx
+create_dayx <- function() {
+  filename <- file.path(testdata_dir, "ex_dayx.nc")
+  lon <- seq(5, 8, 0.5)
+  lat <- seq(45, 48, 0.5)
+  time <- seq(ISOdate(2000, 1, 1), ISOdate(2000, 1, 3), "hours")
+  origin <- as.Date("1983-01-01 00:00:00")
+  time <- as.numeric(difftime(time, origin, units = "hour"))
+  data <- array(250:272, dim = c(7, 7, 49))
+  
+  x <- ncdim_def(name = "lon", units = "degrees_east", vals = lon)
+  y <- ncdim_def(name = "lat", units = "degrees_north", vals = lat)
+  t <- ncdim_def(name = "time", units = "hours since 1983-01-01 00:00:00",
+                 vals = time, unlim = TRUE)
+  var1 <- ncvar_def("SIS", "W m-2", list(x, y, t), -999, prec = "short",
+                    longname = "Surface Incoming Shortwave Radiation")
+  vars <- list(var1)
+  ncnew <- nc_create(filename, vars)
+  ncvar_put(ncnew, var1, data)
+  ncatt_put(ncnew, "lon", "standard_name", "longitude", prec = "text")
+  ncatt_put(ncnew, "lat", "standard_name", "latitude", prec = "text")
+  ncatt_put(ncnew, "SIS", "standard_name", "SIS_standard", prec = "text")
+  nc_close(ncnew)
+}
+
+# Create test data for hourx
+create_hourx <- function() {
+  filename <- file.path(testdata_dir, "ex_hourx.nc")
+  lon <- seq(5, 8, 0.5)
+  lat <- seq(45, 48, 0.5)
+  
+  time <- seq(ISOdate(2000, 1, 1), ISOdate(2000, 1, 2), "mins")
+  origin <- as.Date("1983-01-01 00:00:00")
+  time <- as.numeric(difftime(time, origin, units = "min"))
+  data <- array(250:350, dim = c(7, 7, 1441))
+  
+  x <- ncdim_def(name = "lon", units = "degrees_east", vals = lon)
+  y <- ncdim_def(name = "lat", units = "degrees_north", vals = lat)
+  t <- ncdim_def(name = "time", units = "minutes since 1983-01-01 00:00:00",
+                 vals = time, unlim = TRUE)
+  var1 <- ncvar_def("SIS", "W m-2", list(x, y, t), -999, prec = "short",
+                    longname = "Surface Incoming Shortwave Radiation")
+  vars <- list(var1)
+  ncnew <- nc_create(filename, vars)
+  ncvar_put(ncnew, var1, data)
+  ncatt_put(ncnew, "lon", "standard_name", "longitude", prec = "text")
+  ncatt_put(ncnew, "lat", "standard_name", "latitude", prec = "text")
+  ncatt_put(ncnew, "SIS", "standard_name", "SIS_standard", prec = "text")
+  nc_close(ncnew)
+}
+
+# Create test data for gridboxx
+create_gridboxx <- function() {
+  filename <- file.path(testdata_dir, "ex_gridboxx.nc")
+  lon <- seq(5, 15, 0.5)
+  lat <- seq(45, 55, 0.5)
+  time <- seq(as.Date("2000-03-01"), as.Date("2000-05-31"), "month")
+  origin <- as.Date("1983-01-01 00:00:00")
+  time <- as.numeric(difftime(time, origin, units = "hour"))
+  data <- array(250:350, dim = c(21, 21, 3))
+  
+  x <- ncdim_def(name = "lon", units = "degrees_east", vals = lon)
+  y <- ncdim_def(name = "lat", units = "degrees_north", vals = lat)
+  t <- ncdim_def(name = "time", units = "hours since 1983-01-01 00:00:00",
+                 vals = time, unlim = TRUE)
+  var1 <- ncvar_def("SIS", "W m-2", list(x, y, t), -999, prec = "short",
+                    longname = "Surface Incoming Shortwave Radiation")
+  vars <- list(var1)
+  ncnew <- nc_create(filename, vars)
+  
+  ncvar_put(ncnew, var1, data)
+  
+  ncatt_put(ncnew, "lon", "standard_name", "longitude", prec = "text")
+  ncatt_put(ncnew, "lat", "standard_name", "latitude", prec = "text")
+  ncatt_put(ncnew, "SIS", "standard_name", "SIS_standard", prec = "text")
+  nc_close(ncnew)
+}
+
+# Create test data for mon_day_mean
+create_mon_day_mean <- function() {
+  filename <- file.path(testdata_dir, "ex_mon_day_mean.nc")
+  lon <- seq(5, 8, 0.5)
+  lat <- seq(45, 48, 0.5)
+  time <- seq(ISOdate(2000, 3, 1), ISOdate(2000, 5, 31), "hours")
+  origin <- as.Date("1983-01-01 00:00:00")
+  time <- as.numeric(difftime(time, origin, units = "hour"))
+  data <- array(250:272, dim = c(7, 7, 2185))
+  
+  x <- ncdim_def(name = "lon", units = "degrees_east", vals = lon)
+  y <- ncdim_def(name = "lat", units = "degrees_north", vals = lat)
+  t <- ncdim_def(name = "time", units = "hours since 1983-01-01 00:00:00",
+                 vals = time, unlim = TRUE)
+  var1 <- ncvar_def("SIS", "W m-2", list(x, y, t), -999, prec = "short",
+                    longname = "Surface Incoming Shortwave Radiation")
+  vars <- list(var1)
+  ncnew <- nc_create(filename, vars)
+  
+  ncvar_put(ncnew, var1, data)
+  
   ncatt_put(ncnew, "lon", "standard_name", "longitude", prec = "text")
   ncatt_put(ncnew, "lat", "standard_name", "latitude", prec = "text")
   ncatt_put(ncnew, "SIS", "standard_name", "SIS_standard", prec = "text")
@@ -837,7 +993,7 @@ create_yday <- function() {
   nc_close(ncnew)
 }
 
-# Create test data for yearsum and yearmean.
+# Create test data for yearsum, yearmean, yearmin, yearmax, yearsd, yearvar and yearrange
 create_year <- function() {
   filename <- file.path(testdata_dir, "ex_year.nc")
   lon <- seq(5, 6, 0.5)
@@ -1212,6 +1368,80 @@ create_examples_timcumsum <- function() {
   nc_close(ncnew)
 }
 
+##### create examples for timcor and timcovar #####
+create_tim_cor_covar <- function() {
+  filename1 <- file.path(testdata_dir, "ex_tim_cor_covar_1.nc")
+  filename2 <- file.path(testdata_dir, "ex_tim_cor_covar_2.nc")
+  lon <- seq(5, 15, 0.5)
+  lat <- seq(45, 55, 0.5)
+  time <- seq(as.Date("2000-03-01"), as.Date("2000-05-31"), "month")
+  origin <- as.Date("1983-01-01 00:00:00")
+  time <- as.numeric(difftime(time, origin, units = "hour"))
+  data1 <- get_cor_data(1, 21, 21, 3)
+  data2 <- get_cor_data(2, 21, 21, 3)
+  
+  ## create example NetCDF
+  x <- ncdim_def(name = "lon", units = "degrees_east", vals = lon)
+  y <- ncdim_def(name = "lat", units = "degrees_north", vals = lat)
+  t <- ncdim_def(name = "time", units = "hours since 1983-01-01 00:00:00",
+                 vals = time, unlim = TRUE)
+  var1 <- ncvar_def("SIS", "W m-2", list(x, y, t), -999, prec = "short", 
+                    longname = "Surface Incoming Shortwave Radiation")
+  vars <- list(var1)
+  ncnew_1 <- nc_create(filename1, vars)
+  ncnew_2 <- nc_create(filename2, vars)
+  
+  ncvar_put(ncnew_1, var1, data1)
+  ncvar_put(ncnew_2, var1, data2)
+  
+  ncatt_put(ncnew_1, "lon", "standard_name", "longitude", prec = "text")
+  ncatt_put(ncnew_1, "lat", "standard_name", "latitude", prec = "text")
+  ncatt_put(ncnew_1, "SIS", "standard_name", "SIS_standard", prec = "text")
+  
+  ncatt_put(ncnew_2, "lon", "standard_name", "longitude", prec = "text")
+  ncatt_put(ncnew_2, "lat", "standard_name", "latitude", prec = "text")
+  ncatt_put(ncnew_2, "SIS", "standard_name", "SIS_standard", prec = "text")
+  nc_close(ncnew_1)
+  nc_close(ncnew_2)
+}
+
+##### create examples for fldcor and fldcovar #####
+create_fld_cor_covar <- function() {
+  filename1 <- file.path(testdata_dir, "ex_fld_cor_covar_1.nc")
+  filename2 <- file.path(testdata_dir, "ex_fld_cor_covar_2.nc")
+  lon <- seq(5, 15, 0.5)
+  lat <- seq(45, 55, 0.5)
+  time <- seq(as.Date("2000-03-01"), as.Date("2000-05-31"), "month")
+  origin <- as.Date("1983-01-01 00:00:00")
+  time <- as.numeric(difftime(time, origin, units = "hour"))
+  data1 <- get_cor_data_fld(1, 21, 21, 3)
+  data2 <- get_cor_data_fld(2, 21, 21, 3)
+  
+  ## create example NetCDF
+  x <- ncdim_def(name = "lon", units = "degrees_east", vals = lon)
+  y <- ncdim_def(name = "lat", units = "degrees_north", vals = lat)
+  t <- ncdim_def(name = "time", units = "hours since 1983-01-01 00:00:00",
+                 vals = time, unlim = TRUE)
+  var1 <- ncvar_def("SIS", "W m-2", list(x, y, t), -999, prec = "float", 
+                    longname = "Surface Incoming Shortwave Radiation")
+  vars <- list(var1)
+  ncnew_1 <- nc_create(filename1, vars)
+  ncnew_2 <- nc_create(filename2, vars)
+  
+  ncvar_put(ncnew_1, var1, data1)
+  ncvar_put(ncnew_2, var1, data2)
+  
+  ncatt_put(ncnew_1, "lon", "standard_name", "longitude", prec = "text")
+  ncatt_put(ncnew_1, "lat", "standard_name", "latitude", prec = "text")
+  ncatt_put(ncnew_1, "SIS", "standard_name", "SIS_standard", prec = "text")
+  
+  ncatt_put(ncnew_2, "lon", "standard_name", "longitude", prec = "text")
+  ncatt_put(ncnew_2, "lat", "standard_name", "latitude", prec = "text")
+  ncatt_put(ncnew_2, "SIS", "standard_name", "SIS_standard", prec = "text")
+  nc_close(ncnew_1)
+  nc_close(ncnew_2)
+}
+
 create_examples_normal()
 create_examples_tb()
 create_examples_time()
@@ -1240,5 +1470,13 @@ create_ymon()
 create_ymon_irregular()
 create_yseas()
 create_examples_timcumsum()
+create_run_data()
+create_cmsaf.abs()
+create_dayx()
+create_hourx()
+create_tim_cor_covar()
+create_fld_cor_covar()
+create_gridboxx()
+create_mon_day_mean()
 # create_examples_remap()
 # create_remap()

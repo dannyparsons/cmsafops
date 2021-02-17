@@ -1,8 +1,8 @@
 #'Select a region by longitude and latitude.
 #'
 #'This function cuts a region from data of a CM SAF NetCDF file. The region is
-#'selected by giving the coordinates of the lower left and upper right corner of a
-#'rectangular grid area.
+#'selected by giving the coordinates of the lower left and upper right corner of
+#'an rectangular grid area.
 #'
 #'@param var Name of NetCDF variable (character).
 #'@param infile Filename of input NetCDF file. This may include the directory
@@ -55,8 +55,9 @@
 #'
 #'## Cut a region of the example CM SAF NetCDF file and write the output
 #'## to a new file.
-#'sellonlatbox("SIS", file.path(tempdir(),"CMSAF_example_file.nc"),
-#'  file.path(tempdir(),"CMSAF_example_file_sellonlatbox.nc"), 8, 12, 48, 52)
+#'sellonlatbox(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"),
+#'  outfile = file.path(tempdir(),"CMSAF_example_file_sellonlatbox.nc"), 
+#'  lon1 = 8, lon2 = 12, lat1 = 48, lat2 = 52)
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_sellonlatbox.nc")))

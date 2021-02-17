@@ -50,8 +50,8 @@
 #'
 #'## Determine the monthly minimum of the example CM SAF NetCDF file and
 #'## write the output to a new file.
-#'monmin("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
-#'  file.path(tempdir(),"CMSAF_example_file_monmin.nc"))
+#'monmin(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+#'  outfile = file.path(tempdir(),"CMSAF_example_file_monmin.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_monmin.nc")))

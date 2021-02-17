@@ -15,8 +15,8 @@ timsd(var, infile, outfile, nc34 = 4, overwrite = FALSE, verbose = FALSE)
 \item{outfile}{Filename of output NetCDF file. This may include the directory
 (character).}
 
-\item{nc34}{NetCDF version of output file. If \code{nc34 = 3} the output file will be
-in NetCDFv3 format (numeric). Default output is NetCDFv4.}
+\item{nc34}{NetCDF version of output file. If \code{nc34 = 3} the output file
+will be in NetCDFv3 format (numeric). Default output is NetCDFv4.}
 
 \item{overwrite}{logical; should existing output file be overwritten?}
 
@@ -62,19 +62,23 @@ nc_close(ncnew)
 
 ## Determine the all-time seasonal standard deviation of the example CM
 ## SAF NetCDF file and write the output to a new file.
-timsd("SIS", file.path(tempdir(),"CMSAF_example_file.nc"),
- file.path(tempdir(),"CMSAF_example_file_timsd.nc"))
+timsd(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+ outfile = file.path(tempdir(),"CMSAF_example_file_timsd.nc"))
 
-unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"),
- file.path(tempdir(),"CMSAF_example_file_timsd.nc")))
+unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), file.path(tempdir(),
+ "CMSAF_example_file_timsd.nc")))
 }
 \seealso{
 Other temporal operators: 
+\code{\link{cmsaf.detrend}()},
+\code{\link{cmsaf.mk.test}()},
+\code{\link{cmsaf.regres}()},
 \code{\link{timmax}()},
 \code{\link{timmean}()},
 \code{\link{timmin}()},
 \code{\link{timpctl}()},
 \code{\link{timsum}()},
+\code{\link{trend_advanced}()},
 \code{\link{trend}()}
 }
 \concept{temporal operators}

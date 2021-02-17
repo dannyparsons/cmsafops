@@ -73,14 +73,16 @@ nc_close(ncnew)
 
 ## Subtract a given number from each dataset element of the example CM
 ## SAF NetCDF file and write the output to a new file.
-cmsaf.subc("SIS", 10, file.path(tempdir(),"CMSAF_example_file.nc"),
- file.path(tempdir(),"CMSAF_example_file_subc.nc"))
+cmsaf.subc(var = "SIS", const = 10, infile = file.path(tempdir(),
+ "CMSAF_example_file.nc"), outfile = file.path(tempdir(),
+ "CMSAF_example_file_subc.nc"))
 
 unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
  file.path(tempdir(),"CMSAF_example_file_subc.nc")))
 }
 \seealso{
 Other mathematical operators: 
+\code{\link{cmsaf.abs}()},
 \code{\link{cmsaf.addc}()},
 \code{\link{cmsaf.add}()},
 \code{\link{cmsaf.divc}()},

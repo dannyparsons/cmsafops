@@ -61,8 +61,8 @@ nc_close(ncnew)
 
 ## Determine the monthly maximum of the example CM SAF NetCDF file and
 ## write the output to a new file.
-monmax("SIS", file.path(tempdir(),"CMSAF_example_file.nc"), 
- file.path(tempdir(),"CMSAF_example_file_monmax.nc"))
+monmax(var = "SIS", infile = file.path(tempdir(),"CMSAF_example_file.nc"), 
+ outfile = file.path(tempdir(),"CMSAF_example_file_monmax.nc"))
 
 unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
  file.path(tempdir(),"CMSAF_example_file_monmax.nc")))
@@ -70,10 +70,14 @@ unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"),
 \seealso{
 Other monthly statistics: 
 \code{\link{mon.anomaly}()},
+\code{\link{monavg}()},
+\code{\link{mondaymean}()},
 \code{\link{monmean}()},
 \code{\link{monmin}()},
+\code{\link{monpctl}()},
 \code{\link{monsd}()},
 \code{\link{monsum}()},
+\code{\link{monvar}()},
 \code{\link{multimonmean}()},
 \code{\link{multimonsum}()},
 \code{\link{ymonmax}()},

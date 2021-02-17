@@ -54,7 +54,8 @@ nc_close(ncnew)
 
 ## Load the data of variable 'SIS' of the example file into R.  To
 ## access the data use e.g., my.data$SIS
-my.data <- read_ncvar("SIS", file.path(tempdir(),"CMSAF_example_file.nc"))
+my.data <- read_ncvar(var = "SIS", infile = file.path(tempdir(),
+ "CMSAF_example_file.nc"))
 
 unlink(file.path(tempdir(),"CMSAF_example_file.nc"))
 }

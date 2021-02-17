@@ -78,9 +78,9 @@
 #'
 #'## Interpolate the fields of both example CM SAF NetCDF file 1 to the
 #'## coarser grid of file 2 and write the result into one output file.
-#'remap("SIS", file.path(tempdir(),"CMSAF_example_file_1.nc"), 
-#'  file.path(tempdir(),"CMSAF_example_file_2.nc"),
-#'  file.path(tempdir(),"CMSAF_example_file_remap.nc"))
+#'remap(var = "SIS", infile1 = file.path(tempdir(),"CMSAF_example_file_1.nc"), 
+#'  infile2 = file.path(tempdir(),"CMSAF_example_file_2.nc"),
+#'  outfile = file.path(tempdir(),"CMSAF_example_file_remap.nc"))
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file_1.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_2.nc"),
