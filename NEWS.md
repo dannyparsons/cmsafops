@@ -1,5 +1,8 @@
 # Changelog for cmsafops package
 
+## 1.1.1
+- Fix a bug, which led to an error using cmsafvis anomaly_map
+
 ## 1.1.0
 - Add new operators: cmsaf.abs, cmsaf.detrend, cmsaf.mk.test, cmsaf.regres, dayavg,
   daymax, daymin, daypctl, daysd, dayvar, fldcor, fldcovar, fldrange, fldsd, 

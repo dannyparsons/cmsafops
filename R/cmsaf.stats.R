@@ -82,8 +82,8 @@ cmsaf.stats <- function(var1, var2, infile1, infile2, outfile, nc34 = 4, overwri
   }
   
   # difference
-  argumentList <- list(vari1 = var1,
-                       vari2 = var2,
+  argumentList <- list(var1 = var1,
+                       var2 = var2,
                        infile1 = temp_outfile_one,
                        infile2 = temp_outfile_two,
                        outfile = temp_outfile,

@@ -964,4 +964,4 @@ test_that("coordinates are correct", {
 
 nc_close(file)
 
-# TODO test vari1 != vari2
+# TODO test var1 != var2

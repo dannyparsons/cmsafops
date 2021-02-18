@@ -1,6 +1,6 @@
-e9260c5f2fb838762c6071d8b89d3db0 *DESCRIPTION
+c7c513e3e154f8f93a0f6101728a2aa1 *DESCRIPTION
 f9af1a67242632f6b7852543e61372c6 *NAMESPACE
-2bb1b1dc9f9b07f6bd29d2de778a19ca *NEWS.md
+aef861e907a358e5cbb19e4a89de1a90 *NEWS.md
 ffea3f6557616583cb3be69cf4afa820 *R/acsaf_box_mergetime.R
 bfe51f01381d27d480d80ac3007add20 *R/add_grid_info.R
 841c3198e80c63b23dd1049999996697 *R/arith_wrapper.R
@@ -38,7 +38,7 @@ f0c740f73a3761ffd9de957997ebddc0 *R/cmsaf.detrend.R
 7e4923851c73ba2693738e13cd771d41 *R/cmsaf.mul.R
 69d4e48140ebb3ccd191a6793c5d240c *R/cmsaf.mulc.R
 9369d3b59b5c0b771f0cc75ff51f0a66 *R/cmsaf.regres.R
-61b972ab6d3bef8fedf76bf2b9b97fb5 *R/cmsaf.stats.R
+20bf1b4a026e6581b7f0e9f32d18d909 *R/cmsaf.stats.R
 3389a07361e7a5e510da24639c2cf8c3 *R/cmsaf.stats.station.data.R
 437803ab7da0ebb7c2d608e423ef3d8c *R/cmsaf.sub.R
 8419c60468bb897744edaffad7984cc3 *R/cmsaf.sub.rel.R
@@ -219,7 +219,7 @@ af21e63b1a3342cb17c7264c56680e1a *R/yseasx_wrapper.R
 02bad642d4f9c4f456d7278fcbf91c61 *R/zonmean.R
 d9fc216037b5c711c428141fd12cebcf *R/zonsum.R
 be66e2fc5204f5b0ea30c60e4d3beb3f *R/zonx_wrapper.R
-0ad0b163ebaf50218da40e520f015f3a *build/partial.rdb
+3861033658eb1cbe00e8a669f88b9613 *build/partial.rdb
 ac041be6ea225b94089a5806df07e549 *inst/WORDLIST
 2e44b2d75d5ee1bb7b375c700d7a1423 *man/acsaf_box_mergetime.Rd
 9fe21d24794f79a9e4c8b173df82cd46 *man/add_grid_info.Rd
@@ -444,7 +444,7 @@ bd0851cb2100c4174608dd32455c4dda *tests/testthat/create_testdata.R
 e8b7e381637a1f0739b170d3dfe670e8 *tests/testthat/test_box_mergetime.R
 dfd29149c6b8504e6c3e1c851544a289 *tests/testthat/test_change_att.R
 7599fc192989e26e6e933ae3d6b3201a *tests/testthat/test_cmsaf.abs.R
-db5e9af3a2db3b0c1f0a27722963b4c4 *tests/testthat/test_cmsaf.add.R
+0c7e19ed38608767cb0bc52981661ed5 *tests/testthat/test_cmsaf.add.R
 fbffc986db90fca9852f0f388545f16a *tests/testthat/test_cmsaf.addc.R
 7dac3d98e7d9da53c9191fe6c1968d48 *tests/testthat/test_cmsaf.cat.R
 c080d4ff4911615f4ccaedaa8255d54c *tests/testthat/test_cmsaf.detrend.R
