@@ -4,11 +4,11 @@
 # cmsaf.divc, cmsaf.mulc, cmsaf.subc). Argument op is one of 1-4, depending on
 # the arithmetic function used.
 arithc_wrapper <- function(op, var, const, infile, outfile, nc34, overwrite,
-                           verbose) {
+                           verbose, nc = NULL) {
   check_variable(var)
 
   check_constant(const)
-  check_infile(infile)
+  if (is.null(nc)) check_infile(infile)
   check_outfile(outfile)
 
   outfile <- correct_filename(outfile)
@@ -23,7 +23,7 @@ arithc_wrapper <- function(op, var, const, infile, outfile, nc34, overwrite,
   calc_time_start <- Sys.time()
 
   # get information about dimensions and attributes
-  file_data <- read_file(infile, var)
+  file_data <- read_file(infile, var, nc = nc)
   if (op > 2) {
     file_data$variable$prec <- "float"
   }
@@ -81,9 +81,10 @@ arithc_wrapper <- function(op, var, const, infile, outfile, nc34, overwrite,
   # calculate results
 
   if (file_data$time_info$has_time_bnds) {
-    time_bnds <- get_time_bounds_from_file(infile)
+    time_bnds <- get_time_bounds_from_file(infile, nc)
   }
-  nc_in <- nc_open(infile)
+  if(!is.null(nc)) nc_in <- nc
+  else nc_in <- nc_open(infile)
   nc_out <- nc_open(outfile, write = TRUE)
 
   for (i in seq_len(length(file_data$dimension_data$t))) {
@@ -105,7 +106,7 @@ arithc_wrapper <- function(op, var, const, infile, outfile, nc34, overwrite,
                 count = c(-1, 1))
     }
   }
-  nc_close(nc_in)
+  if(is.null(nc)) nc_close(nc_in)
   nc_close(nc_out)
 
   calc_time_end <- Sys.time()

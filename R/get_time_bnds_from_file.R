@@ -1,8 +1,9 @@
-get_time_bounds_from_file <- function(infile) {
-  nc_in <- nc_open(infile)
+get_time_bounds_from_file <- function(infile, nc = NULL) {
+  if (!is.null(nc)) nc_in <- nc 
+  else nc_in <- nc_open(infile)
   time_bnds <- ncvar_get(nc_in, TIME_BOUNDS_NAMES$DEFAULT,
                          collapse_degen = FALSE)
-  nc_close(nc_in)
+  if (is.null(nc)) nc_close(nc_in)
 
   return(time_bnds)
 }
