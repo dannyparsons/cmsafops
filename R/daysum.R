@@ -58,6 +58,6 @@
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_daysum.nc")))
 daysum <- function(var, infile, outfile, nc34 = 4, overwrite = FALSE, verbose = FALSE,
-                   nc = nc) {
+                   nc = NULL) {
   dayx_wrapper(4, var, infile, outfile, nc34, overwrite, verbose = verbose, nc = nc)
 }
