@@ -12,6 +12,8 @@
 #'  in NetCDFv3 format (numeric). Default output is NetCDFv4.
 #'@param overwrite logical; should existing output file be overwritten?
 #'@param verbose logical; if TRUE, progress messages are shown
+#'@param nc Alternatively to `infile` you can instead specify the input as an
+#'  object of class `ncdf4` (as returned from `ncdf4::nc_open`).
 #'
 #'@return A NetCDF file including a time series of monthly minima is written.
 #'@export
@@ -55,6 +57,7 @@
 #'
 #'unlink(c(file.path(tempdir(),"CMSAF_example_file.nc"), 
 #'  file.path(tempdir(),"CMSAF_example_file_monmin.nc")))
-monmin <- function(var, infile, outfile, nc34 = 4, overwrite = FALSE, verbose = FALSE) {
-  monx_wrapper(2, var, infile, outfile, nc34, overwrite, verbose)
+monmin <- function(var, infile, outfile, nc34 = 4, overwrite = FALSE, verbose = FALSE,
+                   nc = NULL) {
+  monx_wrapper(2, var, infile, outfile, nc34, overwrite, verbose, nc = nc)
 }
