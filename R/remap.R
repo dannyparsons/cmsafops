@@ -26,9 +26,9 @@
 #'  in NetCDFv3 format (numeric). Default output is NetCDFv4.
 #' @param overwrite logical; should existing output file be overwritten?
 #' @param verbose logical; if TRUE, progress messages are shown
-#'@param nc1 Alternatively to `infile1` you can instead specify the input as an
+#' @param nc1 Alternatively to `infile1` you can instead specify the input as an
 #'  object of class `ncdf4` (as returned from `ncdf4::nc_open`).
-#'@param nc2 Alternatively to `infile2` you can instead specify the input as an
+#' @param nc2 Alternatively to `infile2` you can instead specify the input as an
 #'  object of class `ncdf4` (as returned from `ncdf4::nc_open`).
 #'
 #' @return A NetCDF file including the interpolated data of infile1 on the grid of
