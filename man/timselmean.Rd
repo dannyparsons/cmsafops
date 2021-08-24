@@ -11,7 +11,8 @@ timselmean(
   outfile,
   nc34 = 4,
   overwrite = FALSE,
-  verbose = FALSE
+  verbose = FALSE,
+  nc = NULL
 )
 }
 \arguments{
@@ -25,12 +26,15 @@ timselmean(
 \item{outfile}{Filename of output NetCDF file. This may include the directory
 (character).}
 
-\item{nc34}{NetCDF version of output file. If \code{nc34 = 3} the output file
+\item{nc34}{NetCDF version of output file. If \code{nc34 = 3} the output file 
 will be in NetCDFv3 format (numeric). Default output is NetCDFv4.}
 
 \item{overwrite}{logical; should existing output file be overwritten?}
 
 \item{verbose}{logical; if TRUE, progress messages are shown}
+
+\item{nc}{Alternatively to `infile` you can instead specify the input as an
+object of class `ncdf4` (as returned from `ncdf4::nc_open`).}
 }
 \value{
 A NetCDF file including a time series of time selection means is written.

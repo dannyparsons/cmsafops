@@ -11,13 +11,14 @@ timpctl(
   outfile,
   nc34 = 4,
   overwrite = FALSE,
-  verbose = FALSE
+  verbose = FALSE,
+  nc = NULL
 )
 }
 \arguments{
 \item{var}{Name of NetCDF variable (character).}
 
-\item{p}{Percentile number given as probability within [0, 1] (numeric).
+\item{p}{Percentile number given as probability within \[0, 1\] (numeric).
 Default is 0.95.}
 
 \item{infile}{Filename of input NetCDF file. This may include the directory
@@ -32,10 +33,13 @@ in NetCDFv3 format (numeric). Default output is NetCDFv4.}
 \item{overwrite}{logical; should existing output file be overwritten?}
 
 \item{verbose}{logical; if TRUE, progress messages are shown}
+
+\item{nc}{Alternatively to `infile` you can instead specify the input as an
+object of class `ncdf4` (as returned from `ncdf4::nc_open`).}
 }
 \value{
 A NetCDF file including a time series of all-time seasonal standard
-deviations is written.
+ deviations is written.
 }
 \description{
 The function determines a given percentile over all timesteps from data of a

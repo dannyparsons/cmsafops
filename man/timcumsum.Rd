@@ -11,7 +11,8 @@ timcumsum(
   nc34 = 4,
   overwrite = FALSE,
   na_replace = "mean",
-  verbose = FALSE
+  verbose = FALSE,
+  nc = NULL
 )
 }
 \arguments{
@@ -19,21 +20,24 @@ timcumsum(
 
 \item{infile}{Character containing file name or path of input file.}
 
-\item{outfile}{Character containing file name or path of output file.
+\item{outfile}{Character containing file name or path of output file. 
 If NULL, the input file is directly edited instead.}
 
-\item{nc34}{NetCDF version of output file. If \code{nc34 = 3} the output
+\item{nc34}{NetCDF version of output file. If \code{nc34 = 3} the output 
 file will be in NetCDFv3 format (numeric). Default output is NetCDFv4.}
 
-\item{overwrite}{Logical; should existing output file be overwritten?
+\item{overwrite}{Logical; should existing output file be overwritten? 
 If outfile is NULL, this parameter is ignored.}
 
-\item{na_replace}{Replacing NA values with either 'mean' or 'previous'
+\item{na_replace}{Replacing NA values with either 'mean' or 'previous' 
 for monthly mean or previous value, respectively (character).}
 
 \item{verbose}{logical; if TRUE, progress messages are shown}
+
+\item{nc}{Alternatively to `infile` you can instead specify the input as an
+object of class `ncdf4` (as returned from `ncdf4::nc_open`).}
 }
 \description{
-Computes the accumulation of the given variable over time.
+Computes the accumulation of the given variable over time. 
 The resulting outfile has the same dimensions as the infile.
 }

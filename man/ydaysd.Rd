@@ -4,7 +4,15 @@
 \alias{ydaysd}
 \title{Determine multi-year daily standard deviations}
 \usage{
-ydaysd(var, infile, outfile, nc34 = 4, overwrite = FALSE, verbose = FALSE)
+ydaysd(
+  var,
+  infile,
+  outfile,
+  nc34 = 4,
+  overwrite = FALSE,
+  verbose = FALSE,
+  nc = NULL
+)
 }
 \arguments{
 \item{var}{Name of NetCDF variable (character).}
@@ -15,19 +23,22 @@ ydaysd(var, infile, outfile, nc34 = 4, overwrite = FALSE, verbose = FALSE)
 \item{outfile}{Filename of output NetCDF file. This may include the directory
 (character).}
 
-\item{nc34}{NetCDF version of output file. If \code{nc34 = 3} the output file
+\item{nc34}{NetCDF version of output file. If \code{nc34 = 3} the output file 
 will be in NetCDFv3 format (numeric). Default output is NetCDFv4.}
 
 \item{overwrite}{logical; should existing output file be overwritten?}
 
 \item{verbose}{logical; if TRUE, progress messages are shown}
+
+\item{nc}{Alternatively to `infile` you can instead specify the input as an
+object of class `ncdf4` (as returned from `ncdf4::nc_open`).}
 }
 \value{
-A NetCDF file including a time series of multi-year daily standard
-deviations is written.
+A NetCDF file including a time series of multi-year daily standard 
+ deviations is written.
 }
 \description{
-The function determines multi-year daily standard deviations from data of a
+The function determines multi-year daily standard deviations from data of a 
 single CM SAF NetCDF input file.
 }
 \examples{

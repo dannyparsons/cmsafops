@@ -4,7 +4,15 @@
 \alias{monmean}
 \title{Determine monthly means}
 \usage{
-monmean(var, infile, outfile, nc34 = 4, overwrite = FALSE, verbose = FALSE)
+monmean(
+  var,
+  infile,
+  outfile,
+  nc34 = 4,
+  overwrite = FALSE,
+  verbose = FALSE,
+  nc = NULL
+)
 }
 \arguments{
 \item{var}{Name of NetCDF variable (character).}
@@ -21,6 +29,9 @@ in NetCDFv3 format (numeric). Default output is NetCDFv4.}
 \item{overwrite}{logical; should existing output file be overwritten?}
 
 \item{verbose}{logical; if TRUE, progress messages are shown}
+
+\item{nc}{Alternatively to `infile` you can instead specify the input as an
+object of class `ncdf4` (as returned from `ncdf4::nc_open`).}
 }
 \value{
 A NetCDF file including a time series of monthly means is written.
@@ -29,10 +40,10 @@ A NetCDF file including a time series of monthly means is written.
 The function determines monthly mean values from data of a single CM SAF
 NetCDF input file. This function is applicable to 3-dimensional NetCDF data.
 There is a difference between the operators monmean and monavg.
-The mean is regarded as a statistical function, whereas the average is found
-simply by adding the sample members and dividing the result by the sample size.
-For example, the mean of 1, 2, miss and 3 is (1 + 2 + 3)/3 = 2,
-whereas the average is (1 + 2 + miss + 3)/4 = miss/4 = miss.
+The mean is regarded as a statistical function, whereas the average is found 
+simply by adding the sample members and dividing the result by the sample size. 
+For example, the mean of 1, 2, miss and 3 is (1 + 2 + 3)/3 = 2, 
+whereas the average is (1 + 2 + miss + 3)/4 = miss/4 = miss. 
 If there are no missing values in the sample, the average and mean are identical.
 }
 \examples{

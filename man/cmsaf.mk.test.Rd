@@ -10,7 +10,8 @@ cmsaf.mk.test(
   outfile,
   nc34 = 4,
   overwrite = FALSE,
-  verbose = FALSE
+  verbose = FALSE,
+  nc = NULL
 )
 }
 \arguments{
@@ -28,14 +29,17 @@ in NetCDFv3 format (numeric). Default output is NetCDFv4.}
 \item{overwrite}{logical; should existing output file be overwritten?}
 
 \item{verbose}{logical; if TRUE, progress messages are shown}
+
+\item{nc}{Alternatively to `infile` you can instead specify the input as an
+object of class `ncdf4` (as returned from `ncdf4::nc_open`).}
 }
 \value{
-A NetCDF file including three data layers is written. One layer contains a
-measure for the significance of the calculated mann-kendall statistic (S). A very
-high positive value of S is an indicator of an increasing trend and a very low
-negative value indicates a decreasing trend. Another layer (Z) contains the calculated
-normalized test statsitic Z. A positive value of Z is an indicator of an increasing
-trend and a negative value indicates a decreasing trend.
+A NetCDF file including three data layers is written. One layer contains a 
+ measure for the significance of the calculated mann-kendall statistic (S). A very 
+ high positive value of S is an indicator of an increasing trend and a very low 
+ negative value indicates a decreasing trend. Another layer (Z) contains the calculated 
+ normalized test statsitic Z. A positive value of Z is an indicator of an increasing 
+ trend and a negative value indicates a decreasing trend.
 }
 \description{
 The function determines the trend from data of a single CM SAF NetCDF input

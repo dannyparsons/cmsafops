@@ -25,7 +25,7 @@ in NetCDFv3 format (numeric). Default output is NetCDFv4.}
 }
 \value{
 A NetCDF file including the merged time series is written. The
-resulting file uses the meta data of the first input file.
+ resulting file uses the meta data of the first input file.
 }
 \description{
 This function concatenates datasets of an arbitrary number of input files. All

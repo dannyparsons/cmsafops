@@ -11,7 +11,8 @@ trend(
   option = 1,
   nc34 = 4,
   overwrite = FALSE,
-  verbose = FALSE
+  verbose = FALSE,
+  nc = NULL
 )
 }
 \arguments{
@@ -33,19 +34,22 @@ in NetCDFv3 format (numeric). Default output is NetCDFv4.}
 \item{overwrite}{logical; should existing output file be overwritten?}
 
 \item{verbose}{logical; if TRUE, progress messages are shown}
+
+\item{nc}{Alternatively to `infile` you can instead specify the input as an
+object of class `ncdf4` (as returned from `ncdf4::nc_open`).}
 }
 \value{
 A NetCDF file including three data layers is written. One layer
-(trend1) contains the linear trend multiplied by the number of time steps.
-In older versions of the package (<= 1.7) the trend was given in the same
-way as trend1. Another layer (trend2) contains just the calculated linear
-trend. An additional layer contains a measure for the significance of the
-calculated trends, which was derived using the 95 \% confidence interval.
-The significance is calculated from the lower and upper value of the
-95\% confidence interval:
-lower or upper value < 0: sig = 0 (not significant);
-lower and upper value < 0: sig = -1 (negative significant);
-lower and upper value > 0: sig = 1  (positive significant)
+ (trend1) contains the linear trend multiplied by the number of time steps.
+ In older versions of the package (<= 1.7) the trend was given in the same
+ way as trend1. Another layer (trend2) contains just the calculated linear
+ trend. An additional layer contains a measure for the significance of the
+ calculated trends, which was derived using the 95 % confidence interval.
+ The significance is calculated from the lower and upper value of the
+ 95% confidence interval:
+ lower or upper value < 0: sig = 0 (not significant);
+ lower and upper value < 0: sig = -1 (negative significant);
+ lower and upper value > 0: sig = 1  (positive significant)
 }
 \description{
 The function determines the trend from data of a single CM SAF NetCDF input

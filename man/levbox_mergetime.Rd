@@ -52,7 +52,7 @@ in NetCDFv3 format (numeric). Default output is NetCDFv4.}
 }
 \value{
 A NetCDF file including the merged time series of the selected region
-is written. The output NetCDF file contains only the selected level.
+ is written. The output NetCDF file contains only the selected level.
 }
 \description{
 This function selects a region and a level from a bunch of CM SAF NetCDF files

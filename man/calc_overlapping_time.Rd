@@ -4,7 +4,14 @@
 \alias{calc_overlapping_time}
 \title{Routine to calculate overlapping time periods in two files.}
 \usage{
-calc_overlapping_time(var1, infile1, var2 = NULL, infile2)
+calc_overlapping_time(
+  var1,
+  infile1,
+  var2 = NULL,
+  infile2,
+  nc1 = NULL,
+  nc2 = NULL
+)
 }
 \arguments{
 \item{var1}{Name of NetCDF variable of the first data set (character).}
@@ -16,6 +23,12 @@ calc_overlapping_time(var1, infile1, var2 = NULL, infile2)
 
 \item{infile2}{Filename of second input NetCDF file. This may include the directory
 (character). Also supported formats for station data are .csv and .RData files.}
+
+\item{nc1}{Alternatively to `infile1` you can instead specify the input as an
+object of class `ncdf4` (as returned from `ncdf4::nc_open`).}
+
+\item{nc2}{Alternatively to `infile2` you can instead specify the input as an
+object of class `ncdf4` (as returned from `ncdf4::nc_open`).}
 }
 \value{
 Start date and end date are the result (list).

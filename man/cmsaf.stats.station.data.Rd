@@ -6,25 +6,35 @@
 of a NetCDF file and a dataframe (station data).
 Designed for the CM SAF R Toolbox.}
 \usage{
-cmsaf.stats.station.data(var, infile, data_station, outfile, overwrite = FALSE)
+cmsaf.stats.station.data(
+  var,
+  infile,
+  data_station,
+  outfile,
+  overwrite = FALSE,
+  nc = NULL
+)
 }
 \arguments{
 \item{var}{Name of NetCDF variable of NetCDF file (character).}
 
-\item{infile}{Filename of input NetCDF file. This may include
+\item{infile}{Filename of input NetCDF file. This may include 
 the directory (character).}
 
-\item{data_station}{Dataframe of RData or csv file (station data);
+\item{data_station}{Dataframe of RData or csv file (station data); 
 Designed for the CM SAF R Toolbox.}
 
 \item{outfile}{Filename of output csv file. This may include the directory
 (character).}
 
 \item{overwrite}{logical; should existing output file be overwritten?; Default: FALSE}
+
+\item{nc}{Alternatively to `infile` you can instead specify the input as an
+object of class `ncdf4` (as returned from `ncdf4::nc_open`).}
 }
 \value{
-A csv file including the rmse, mae, bias and correlation over time
-is written.
+A csv file including the rmse, mae, bias and correlation over time 
+ is written.
 }
 \description{
 Calculates the rmse, mae, bias, correlation over time

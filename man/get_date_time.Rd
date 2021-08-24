@@ -13,8 +13,8 @@ get_date_time(times, unit)
 }
 \value{
 A data frame with the columns years, months, days and times. Careful:
-The parts of the date are of numeric type, but the times are stored as
-characters (levels).
+ The parts of the date are of numeric type, but the times are stored as
+ characters (levels).
 }
 \description{
 Get dates and times from NetCDF type date format.

@@ -4,7 +4,15 @@
 \alias{yseasmax}
 \title{Determine multi-year seasonal maxima.}
 \usage{
-yseasmax(var, infile, outfile, nc34 = 4, overwrite = FALSE, verbose = FALSE)
+yseasmax(
+  var,
+  infile,
+  outfile,
+  nc34 = 4,
+  overwrite = FALSE,
+  verbose = FALSE,
+  nc = NULL
+)
 }
 \arguments{
 \item{var}{Name of NetCDF variable (character).}
@@ -21,10 +29,13 @@ in NetCDFv3 format (numeric). Default output is NetCDFv4.}
 \item{overwrite}{logical; should existing output file be overwritten?}
 
 \item{verbose}{logical; if TRUE, progress messages are shown}
+
+\item{nc}{Alternatively to `infile` you can instead specify the input as an
+object of class `ncdf4` (as returned from `ncdf4::nc_open`).}
 }
 \value{
 A NetCDF file including a time series of multi-year seasonal maxima is
-written.
+ written.
 }
 \description{
 The function determines multi-year seasonal maximum values from data of a

@@ -29,10 +29,10 @@ A NetCDF file including a time series of monthly averages is written.
 The function determines monthly averages from data of a single CM SAF
 NetCDF input file. This function is applicable to 3-dimensional NetCDF data.
 There is a difference between the operators monavg and monmean.
-The mean is regarded as a statistical function, whereas the average is found
-simply by adding the sample members and dividing the result by the sample size.
-For example, the mean of 1, 2, miss and 3 is (1 + 2 + 3)/3 = 2,
-whereas the average is (1 + 2 + miss + 3)/4 = miss/4 = miss.
+The mean is regarded as a statistical function, whereas the average is found 
+simply by adding the sample members and dividing the result by the sample size. 
+For example, the mean of 1, 2, miss and 3 is (1 + 2 + 3)/3 = 2, 
+whereas the average is (1 + 2 + miss + 3)/4 = miss/4 = miss. 
 If there are no missing values in the sample, the average and mean are identical.
 }
 \examples{

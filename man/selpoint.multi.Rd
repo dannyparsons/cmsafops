@@ -15,7 +15,8 @@ selpoint.multi(
   station_names,
   format = "nc",
   nc34 = 4,
-  verbose = FALSE
+  verbose = FALSE,
+  nc = NULL
 )
 }
 \arguments{
@@ -49,17 +50,20 @@ output files (character vector). Must have the same length as
 in NetCDFv3 format (numeric). Default output is NetCDFv4.}
 
 \item{verbose}{logical; if TRUE, progress messages are shown}
+
+\item{nc}{Alternatively to `infile` you can instead specify the input as an
+object of class `ncdf4` (as returned from `ncdf4::nc_open`).}
 }
 \value{
 For each pair of longitude and latitude coordinates one separate
-NetCDF or csv file including the selected data is written. The csv files are
-tested for use in Excel and include four columns (Time ; Data ; Longitude ;
-Latitude), which are separated by ';'. If station_names are defined, the
-output files will be named according to this vector. Otherwise, the output
-files will be named as selpoint_longitude_latitude.format. Already existing
-files will be overwritten in case that station_names are given or renamed
-(e.g., \code{selpoint1_longitude_latitude.nc}) in case that no station_names are
-given.
+ NetCDF or csv file including the selected data is written. The csv files are
+ tested for use in Excel and include four columns (Time ; Data ; Longitude ;
+ Latitude), which are separated by ';'. If station_names are defined, the
+ output files will be named according to this vector. Otherwise, the output
+ files will be named as selpoint_longitude_latitude.format. Already existing
+ files will be overwritten in case that station_names are given or renamed
+ (e.g., \code{selpoint1_longitude_latitude.nc}) in case that no station_names are
+ given.
 }
 \description{
 This function extracts all data at given points. The points are given by a

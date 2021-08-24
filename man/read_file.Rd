@@ -4,13 +4,16 @@
 \alias{read_file}
 \title{Designed for the CM SAF R Toolbox.}
 \usage{
-read_file(infile, var_name)
+read_file(infile, var_name, nc = NULL)
 }
 \arguments{
-\item{infile}{Filename of input NetCDF file. This may include the directory
+\item{infile}{Filename of input NetCDF file. This may include the directory 
 (character).}
 
 \item{var_name}{Name of NetCDF variable (character).}
+
+\item{nc}{Alternatively to `infile` you can instead specify the input as an
+object of class `ncdf4` (as returned from `ncdf4::nc_open`).}
 }
 \description{
 This function is a helper function called by the CM SAF R Toolbox.

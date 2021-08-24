@@ -24,7 +24,7 @@ Adds a standard longitude/latitude grid to a file which is based on a different 
 }
 \details{
 No existing data is changed. The additional grid info is added as two
-additional variables (lon and lat).
+  additional variables (lon and lat).
 }
 \seealso{
 Other data manipulation functions: 

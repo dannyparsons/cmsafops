@@ -4,7 +4,7 @@
 \alias{read_ncvar}
 \title{Read NetCDF variable.}
 \usage{
-read_ncvar(var, infile, verbose = FALSE)
+read_ncvar(var, infile, verbose = FALSE, nc = NULL)
 }
 \arguments{
 \item{var}{Name of NetCDF variable (character).}
@@ -13,11 +13,14 @@ read_ncvar(var, infile, verbose = FALSE)
 (character).}
 
 \item{verbose}{logical; if TRUE, progress messages are shown}
+
+\item{nc}{Alternatively to `infile` you can instead specify the input as an
+object of class `ncdf4` (as returned from `ncdf4::nc_open`).}
 }
 \value{
 The output is a list object including the variable and the
-corresponding time variable. The dimension of the chosen variable is most
-commonly a two or three dimensional array.
+ corresponding time variable. The dimension of the chosen variable is most
+ commonly a two or three dimensional array.
 }
 \description{
 This simple function reads a variable of a NetCDF file into R.

@@ -13,7 +13,9 @@ cmsaf.stats(
   outfile,
   nc34 = 4,
   overwrite = FALSE,
-  verbose = FALSE
+  verbose = FALSE,
+  nc1 = NULL,
+  nc2 = NULL
 )
 }
 \arguments{
@@ -21,10 +23,10 @@ cmsaf.stats(
 
 \item{var2}{Name of NetCDF variable of the second file (character).}
 
-\item{infile1}{Filename of first input NetCDF file. This may include
+\item{infile1}{Filename of first input NetCDF file. This may include 
 the directory (character).}
 
-\item{infile2}{Filename of second input NetCDF file. This may include
+\item{infile2}{Filename of second input NetCDF file. This may include 
 the directory (character).}
 
 \item{outfile}{Filename of output csv file. This may include the directory
@@ -35,10 +37,16 @@ the directory (character).}
 \item{overwrite}{logical; should existing output file be overwritten?; Default: FALSE}
 
 \item{verbose}{logical; if TRUE, progress messages are shown}
+
+\item{nc1}{Alternatively to `infile1` you can instead specify the input as an
+object of class `ncdf4` (as returned from `ncdf4::nc_open`).}
+
+\item{nc2}{Alternatively to `infile2` you can instead specify the input as an
+object of class `ncdf4` (as returned from `ncdf4::nc_open`).}
 }
 \value{
-A csv file including the rmse, mae, bias and correlation in grid space
-is written.
+A csv file including the rmse, mae, bias and correlation in grid space 
+ is written.
 }
 \description{
 Calculates the rmse, mae, bias, correlation in grid space of two NetCDF files.

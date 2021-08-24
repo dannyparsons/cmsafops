@@ -41,8 +41,8 @@ in NetCDFv3 format (numeric). Default output is NetCDFv4.}
 }
 \value{
 A NetCDF or csv file including the selected point is written. The
-csv file is tested for use in Excel and includes two columns (Time and
-Data), which are separated by ';'.
+ csv file is tested for use in Excel and includes two columns (Time and
+ Data), which are separated by ';'.
 }
 \description{
 This function extracts all data at a given point. A point is given by a pair

@@ -39,7 +39,7 @@ in NetCDFv3 format (numeric). Default output is NetCDFv4.}
 }
 \value{
 A NetCDF file including the subtracted fields of infile1 and infile2
-is written.
+ is written.
 }
 \description{
 The function subtracts the fields of infile2 from the fields of infile1.
